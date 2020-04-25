@@ -9,6 +9,6 @@
 import UIKit
 import JTAppleCalendar
 
-class DateCell: JTAppleCell {
+class DateCell: JTACDayCell {
     @IBOutlet var dateLabel: UILabel!
 }

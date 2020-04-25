@@ -17,9 +17,9 @@
 		22613D1D2453ED390081B961 /* artemisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D1C2453ED390081B961 /* artemisUITests.swift */; };
 		22613D2B2453F5710081B961 /* MapBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D2A2453F5710081B961 /* MapBaseViewController.swift */; };
 		22613D2D2454A43D0081B961 /* SchedulingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D2C2454A43D0081B961 /* SchedulingViewController.swift */; };
-		22613D302454A8F90081B961 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22613D2F2454A8F80081B961 /* JTAppleCalendar.framework */; };
-		22613D312454A8F90081B961 /* JTAppleCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22613D2F2454A8F80081B961 /* JTAppleCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		22613D342454C0530081B961 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D332454C0530081B961 /* DateCell.swift */; };
+		22613D352454C8150081B961 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22613D2F2454A8F80081B961 /* JTAppleCalendar.framework */; };
+		22613D362454C8150081B961 /* JTAppleCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22613D2F2454A8F80081B961 /* JTAppleCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		22613D322454A8F90081B961 /* Embed Frameworks */ = {
+		22613D372454C8150081B961 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				22613D312454A8F90081B961 /* JTAppleCalendar.framework in Embed Frameworks */,
+				22613D362454C8150081B961 /* JTAppleCalendar.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22613D302454A8F90081B961 /* JTAppleCalendar.framework in Frameworks */,
+				22613D352454C8150081B961 /* JTAppleCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +174,7 @@
 				22613CF32453ED360081B961 /* Sources */,
 				22613CF42453ED360081B961 /* Frameworks */,
 				22613CF52453ED360081B961 /* Resources */,
-				22613D322454A8F90081B961 /* Embed Frameworks */,
+				22613D372454C8150081B961 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

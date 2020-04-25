@@ -185,10 +185,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="ibCalendarDataSource" destination="aID-KT-UrT" id="Ivh-Nr-d7q"/>
-                                    <outlet property="ibCalendarDelegate" destination="aID-KT-UrT" id="iUG-cx-Q3m"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
