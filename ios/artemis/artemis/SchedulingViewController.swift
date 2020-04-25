@@ -10,10 +10,12 @@ import UIKit
 import JTAppleCalendar
 
 class SchedulingViewController: UIViewController {
-
+    @IBOutlet var calendarView: JTACMonthView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        calendarView.calendarDataSource = self
+        calendarView.calendarDelegate = self
     }
     
 
@@ -34,7 +36,7 @@ extension SchedulingViewController: JTACMonthViewDataSource {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
        let startDate = Date()
-        let endDate = Date() + 268000.0
+        let endDate = Date() + 26800000.0
         return ConfigurationParameters(startDate: startDate, endDate: endDate)
     }
 }
@@ -57,7 +59,7 @@ extension SchedulingViewController: JTACMonthViewDelegate {
     }
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        print("POGGERS")
+        print(date)
     }
 }
 

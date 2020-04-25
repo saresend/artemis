@@ -151,63 +151,62 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ctN-hi-lRL" customClass="JTACMonthView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="20" y="320" width="374" height="488"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7IB-p2-fLd" customClass="JTACMonthView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="20" y="318" width="374" height="490"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="lik-Jk-xF4">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JP1-Qi-WFD">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="UtU-79-3iu" customClass="DateCell" customModule="artemis" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="UMU-sI-FlO" customClass="DateCell" customModule="artemis" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="idB-6w-Ytb" customClass="DateCell" customModule="artemis" customModuleProvider="target">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DOn-jd-ZTE">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlv-BU-NxP">
-                                                    <rect key="frame" x="46" y="53.5" width="36" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ9-VZ-IZK">
+                                                    <rect key="frame" x="43" y="54" width="36" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Qlv-BU-NxP" firstAttribute="centerX" secondItem="idB-6w-Ytb" secondAttribute="centerX" id="UF6-N3-n4N"/>
-                                                <constraint firstItem="Qlv-BU-NxP" firstAttribute="centerY" secondItem="idB-6w-Ytb" secondAttribute="centerY" id="ZLG-zQ-bjb"/>
+                                                <constraint firstItem="RQ9-VZ-IZK" firstAttribute="centerY" secondItem="DOn-jd-ZTE" secondAttribute="centerY" id="Yb4-vA-fPC"/>
+                                                <constraint firstItem="RQ9-VZ-IZK" firstAttribute="centerX" secondItem="DOn-jd-ZTE" secondAttribute="centerX" id="rQI-On-bMF"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLabel" destination="Qlv-BU-NxP" id="EYH-Zf-BJg"/>
+                                            <outlet property="dateLabel" destination="RQ9-VZ-IZK" id="Yel-74-QrS"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="ibCalendarDataSource" destination="aID-KT-UrT" id="lW6-uv-QjS"/>
-                                    <outlet property="ibCalendarDelegate" destination="aID-KT-UrT" id="g9P-1C-l0V"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hcs-nN-JJQ" firstAttribute="top" secondItem="DHe-TP-rJc" secondAttribute="bottom" constant="14" id="0gR-bA-fFc"/>
                             <constraint firstItem="hcs-nN-JJQ" firstAttribute="leading" secondItem="ass-UR-gJ1" secondAttribute="leading" constant="20" id="4cf-D5-Q13"/>
+                            <constraint firstItem="7IB-p2-fLd" firstAttribute="leading" secondItem="ass-UR-gJ1" secondAttribute="leading" constant="20" id="4po-vo-K4K"/>
                             <constraint firstItem="DHe-TP-rJc" firstAttribute="leading" secondItem="ass-UR-gJ1" secondAttribute="leading" constant="20" id="7VA-ar-CfP"/>
+                            <constraint firstItem="ass-UR-gJ1" firstAttribute="trailing" secondItem="7IB-p2-fLd" secondAttribute="trailing" constant="20" id="8EC-0d-Ygz"/>
                             <constraint firstItem="DHe-TP-rJc" firstAttribute="top" secondItem="ass-UR-gJ1" secondAttribute="top" constant="20" id="Fu1-m1-cz8"/>
                             <constraint firstItem="UmO-6A-S0l" firstAttribute="top" secondItem="hcs-nN-JJQ" secondAttribute="bottom" constant="79" id="Hqt-bg-DbW"/>
-                            <constraint firstItem="ctN-hi-lRL" firstAttribute="top" secondItem="UmO-6A-S0l" secondAttribute="bottom" constant="22" id="Hx8-xm-NJO"/>
-                            <constraint firstItem="ctN-hi-lRL" firstAttribute="leading" secondItem="ass-UR-gJ1" secondAttribute="leading" constant="20" id="Nlb-Pv-JUA"/>
-                            <constraint firstItem="ass-UR-gJ1" firstAttribute="trailing" secondItem="ctN-hi-lRL" secondAttribute="trailing" constant="20" id="SdE-ek-605"/>
                             <constraint firstItem="UmO-6A-S0l" firstAttribute="leading" secondItem="ass-UR-gJ1" secondAttribute="leading" constant="34" id="X71-Zs-ykb"/>
-                            <constraint firstItem="ass-UR-gJ1" firstAttribute="bottom" secondItem="ctN-hi-lRL" secondAttribute="bottom" id="sQ1-z3-clE"/>
+                            <constraint firstItem="ass-UR-gJ1" firstAttribute="bottom" secondItem="7IB-p2-fLd" secondAttribute="bottom" id="pLu-6D-MDq"/>
+                            <constraint firstItem="7IB-p2-fLd" firstAttribute="top" secondItem="UmO-6A-S0l" secondAttribute="bottom" constant="20" id="zNz-Xt-uK9"/>
                             <constraint firstItem="ass-UR-gJ1" firstAttribute="trailing" secondItem="hcs-nN-JJQ" secondAttribute="trailing" constant="137" id="zlp-Fp-ybl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ass-UR-gJ1"/>
                     </view>
                     <navigationItem key="navigationItem" id="dMJ-DT-vre"/>
+                    <connections>
+                        <outlet property="calendarView" destination="7IB-p2-fLd" id="zgh-R3-DnG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="940-8D-QlF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
