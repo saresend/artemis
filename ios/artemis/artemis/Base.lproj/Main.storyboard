@@ -84,19 +84,84 @@
         <!--Item-->
         <scene sceneID="kCu-47-oYc">
             <objects>
-                <viewController id="UCn-Ms-j4H" sceneMemberID="viewController">
+                <viewController id="UCn-Ms-j4H" customClass="AppointmentListViewController" customModule="artemis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QvF-8B-wTZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLc-eQ-RmR">
+                                <rect key="frame" x="20" y="86" width="210" height="59"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="43"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d9q-lV-9bP">
+                                <rect key="frame" x="10" y="203" width="394" height="556"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="appointCell" rowHeight="79" id="MLE-7B-T0K" customClass="AppointmentTableViewCell" customModule="artemis" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="394" height="79"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MLE-7B-T0K" id="dSJ-xt-Brg">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="79"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trader Joes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBI-pw-CzH">
+                                                    <rect key="frame" x="20" y="11" width="90" height="24"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 5th, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6N-Cr-aer">
+                                                    <rect key="frame" x="20" y="47" width="84" height="18"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                                                    <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hb-E8-LXl">
+                                                    <rect key="frame" x="342" y="28" width="18" height="22"/>
+                                                    <state key="normal" image="doc.plaintext" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <constraints>
+                                                <constraint firstItem="3hb-E8-LXl" firstAttribute="top" secondItem="dSJ-xt-Brg" secondAttribute="top" constant="28" id="DMD-eo-oIf"/>
+                                                <constraint firstItem="BBI-pw-CzH" firstAttribute="top" secondItem="dSJ-xt-Brg" secondAttribute="top" constant="11" id="Lu1-V1-LfM"/>
+                                                <constraint firstAttribute="trailing" secondItem="3hb-E8-LXl" secondAttribute="trailing" constant="34" id="Mmy-NO-Iuc"/>
+                                                <constraint firstItem="BBI-pw-CzH" firstAttribute="leading" secondItem="dSJ-xt-Brg" secondAttribute="leading" constant="20" id="dSR-IJ-S0O"/>
+                                                <constraint firstItem="v6N-Cr-aer" firstAttribute="top" secondItem="BBI-pw-CzH" secondAttribute="bottom" constant="12" id="gty-B9-hcY"/>
+                                                <constraint firstItem="v6N-Cr-aer" firstAttribute="leading" secondItem="dSJ-xt-Brg" secondAttribute="leading" constant="20" id="v1Z-2l-Ca7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="v6N-Cr-aer" id="7SZ-qW-tA7"/>
+                                            <outlet property="titleLabel" destination="BBI-pw-CzH" id="Lpj-dZ-wEA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lLc-eQ-RmR" firstAttribute="top" secondItem="xBh-lA-bta" secondAttribute="top" constant="86" id="PR3-T5-tDz"/>
+                            <constraint firstItem="xBh-lA-bta" firstAttribute="bottom" secondItem="d9q-lV-9bP" secondAttribute="bottom" id="Zeg-Fq-JqG"/>
+                            <constraint firstItem="xBh-lA-bta" firstAttribute="trailing" secondItem="d9q-lV-9bP" secondAttribute="trailing" constant="10" id="clT-4l-fMo"/>
+                            <constraint firstItem="d9q-lV-9bP" firstAttribute="leading" secondItem="xBh-lA-bta" secondAttribute="leading" constant="10" id="hZl-Uy-Ryk"/>
+                            <constraint firstItem="d9q-lV-9bP" firstAttribute="top" secondItem="lLc-eQ-RmR" secondAttribute="bottom" constant="58" id="iZi-Im-SPl"/>
+                            <constraint firstItem="d9q-lV-9bP" firstAttribute="centerX" secondItem="xBh-lA-bta" secondAttribute="centerX" id="vux-eO-tW7"/>
+                            <constraint firstItem="lLc-eQ-RmR" firstAttribute="leading" secondItem="xBh-lA-bta" secondAttribute="leading" constant="20" id="zGN-QN-cMG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xBh-lA-bta"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="s0K-Kq-5eq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="appointmentTableView" destination="d9q-lV-9bP" id="o8Z-bL-BwW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pif-UL-oVm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1999" y="-199"/>
+            <point key="canvasLocation" x="-2000.0000000000002" y="-199.55357142857142"/>
         </scene>
         <!--Item-->
         <scene sceneID="gxf-Ex-Wb8">
@@ -214,6 +279,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="doc.plaintext" catalog="system" width="115" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>
