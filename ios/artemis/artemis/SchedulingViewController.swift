@@ -51,6 +51,14 @@ extension SchedulingViewController: JTACMonthViewDelegate {
         cell.dateLabel.text = cellState.text
         return cell
     }
+    
+    func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+        print("POGGERS")
+    }
 }
 
 
