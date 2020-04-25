@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		22613CFB2453ED360081B961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613CFA2453ED360081B961 /* AppDelegate.swift */; };
 		22613CFD2453ED360081B961 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613CFC2453ED360081B961 /* SceneDelegate.swift */; };
-		22613CFF2453ED360081B961 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613CFE2453ED360081B961 /* ViewController.swift */; };
 		22613D022453ED360081B961 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22613D002453ED360081B961 /* Main.storyboard */; };
 		22613D042453ED390081B961 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22613D032453ED390081B961 /* Assets.xcassets */; };
 		22613D072453ED390081B961 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22613D052453ED390081B961 /* LaunchScreen.storyboard */; };
@@ -23,6 +22,7 @@
 		22613D392454E9260081B961 /* AppointmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D382454E9260081B961 /* AppointmentListViewController.swift */; };
 		22613D3B2454EA050081B961 /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D3A2454EA050081B961 /* AppointmentTableViewCell.swift */; };
 		22613D3D2454EE190081B961 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D3C2454EE190081B961 /* TicketViewController.swift */; };
+		EC2344DE2454F2CD00BAC455 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2344DD2454F2CD00BAC455 /* TimeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,6 @@
 		22613CF72453ED360081B961 /* artemis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = artemis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22613CFA2453ED360081B961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22613CFC2453ED360081B961 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		22613CFE2453ED360081B961 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22613D012453ED360081B961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22613D032453ED390081B961 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22613D062453ED390081B961 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		22613D382454E9260081B961 /* AppointmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewController.swift; sourceTree = "<group>"; };
 		22613D3A2454EA050081B961 /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
 		22613D3C2454EE190081B961 /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
+		EC2344DD2454F2CD00BAC455 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,11 +132,11 @@
 			children = (
 				22613CFA2453ED360081B961 /* AppDelegate.swift */,
 				22613CFC2453ED360081B961 /* SceneDelegate.swift */,
-				22613CFE2453ED360081B961 /* ViewController.swift */,
 				22613D2A2453F5710081B961 /* MapBaseViewController.swift */,
 				22613D002453ED360081B961 /* Main.storyboard */,
 				22613D3C2454EE190081B961 /* TicketViewController.swift */,
 				22613D3A2454EA050081B961 /* AppointmentTableViewCell.swift */,
+				EC2344DD2454F2CD00BAC455 /* TimeViewController.swift */,
 				22613D382454E9260081B961 /* AppointmentListViewController.swift */,
 				22613D332454C0530081B961 /* DateCell.swift */,
 				22613D2C2454A43D0081B961 /* SchedulingViewController.swift */,
@@ -305,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22613CFF2453ED360081B961 /* ViewController.swift in Sources */,
+				EC2344DE2454F2CD00BAC455 /* TimeViewController.swift in Sources */,
 				22613D342454C0530081B961 /* DateCell.swift in Sources */,
 				22613CFB2453ED360081B961 /* AppDelegate.swift in Sources */,
 				22613D3B2454EA050081B961 /* AppointmentTableViewCell.swift in Sources */,
