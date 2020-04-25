@@ -60,7 +60,7 @@ extension SchedulingViewController: JTACMonthViewDelegate {
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         print(date)
-        performSegue(withIdentifier: "toTime", sender: view)
+        performSegue(withIdentifier: "toTime", sender: nil)
     }
 }
 
