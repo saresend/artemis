@@ -29,8 +29,6 @@ class AppointmentListViewController: UIViewController, UITableViewDelegate, UITa
         appointmentTableView.delegate = self
         appointmentTableView.dataSource = self
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 

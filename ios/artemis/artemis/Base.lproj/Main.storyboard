@@ -119,17 +119,26 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hb-E8-LXl">
-                                                    <rect key="frame" x="342" y="28" width="18" height="22"/>
+                                                    <rect key="frame" x="320" y="28" width="18" height="22"/>
                                                     <state key="normal" image="doc.plaintext" catalog="system"/>
+                                                    <connections>
+                                                        <segue destination="ecj-gd-0XW" kind="presentation" id="LSQ-qp-gQF"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jm-d6-ScJ">
+                                                    <rect key="frame" x="354" y="28" width="20" height="22"/>
+                                                    <state key="normal" image="trash" catalog="system"/>
                                                 </button>
                                             </subviews>
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <constraints>
-                                                <constraint firstItem="3hb-E8-LXl" firstAttribute="top" secondItem="dSJ-xt-Brg" secondAttribute="top" constant="28" id="DMD-eo-oIf"/>
+                                                <constraint firstAttribute="trailing" secondItem="7Jm-d6-ScJ" secondAttribute="trailing" constant="20" id="27H-gJ-LYa"/>
+                                                <constraint firstItem="7Jm-d6-ScJ" firstAttribute="top" secondItem="dSJ-xt-Brg" secondAttribute="top" constant="28" id="2ss-qa-5ng"/>
                                                 <constraint firstItem="BBI-pw-CzH" firstAttribute="top" secondItem="dSJ-xt-Brg" secondAttribute="top" constant="11" id="Lu1-V1-LfM"/>
-                                                <constraint firstAttribute="trailing" secondItem="3hb-E8-LXl" secondAttribute="trailing" constant="34" id="Mmy-NO-Iuc"/>
+                                                <constraint firstItem="3hb-E8-LXl" firstAttribute="top" secondItem="dSJ-xt-Brg" secondAttribute="top" constant="28" id="aVu-Ma-JpS"/>
                                                 <constraint firstItem="BBI-pw-CzH" firstAttribute="leading" secondItem="dSJ-xt-Brg" secondAttribute="leading" constant="20" id="dSR-IJ-S0O"/>
                                                 <constraint firstItem="v6N-Cr-aer" firstAttribute="top" secondItem="BBI-pw-CzH" secondAttribute="bottom" constant="12" id="gty-B9-hcY"/>
+                                                <constraint firstItem="7Jm-d6-ScJ" firstAttribute="leading" secondItem="3hb-E8-LXl" secondAttribute="trailing" constant="16" id="nYF-tM-bZP"/>
                                                 <constraint firstItem="v6N-Cr-aer" firstAttribute="leading" secondItem="dSJ-xt-Brg" secondAttribute="leading" constant="20" id="v1Z-2l-Ca7"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -162,6 +171,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pif-UL-oVm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2000.0000000000002" y="-199.55357142857142"/>
+        </scene>
+        <!--Ticket View Controller-->
+        <scene sceneID="dxZ-Ol-97y">
+            <objects>
+                <viewController id="ecj-gd-0XW" customClass="TicketViewController" customModule="artemis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Qk-H9-1tO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Ticket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-NI-tQf">
+                                <rect key="frame" x="20" y="71" width="215" height="59"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="43"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iR2-uX-KJY">
+                                <rect key="frame" x="87" y="243" width="240" height="239"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iR2-uX-KJY" secondAttribute="height" multiplier="240:239" id="7X9-fB-b7t"/>
+                                    <constraint firstAttribute="width" constant="240" id="T8O-FF-w1N"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iR2-uX-KJY" firstAttribute="centerX" secondItem="kBt-9U-GAH" secondAttribute="centerX" id="HRg-o5-c0q"/>
+                            <constraint firstItem="ijM-NI-tQf" firstAttribute="top" secondItem="kBt-9U-GAH" secondAttribute="top" constant="71" id="Kpc-mC-f7c"/>
+                            <constraint firstItem="ijM-NI-tQf" firstAttribute="leading" secondItem="kBt-9U-GAH" secondAttribute="leading" constant="20" id="f9d-l1-wuF"/>
+                            <constraint firstItem="iR2-uX-KJY" firstAttribute="top" secondItem="ijM-NI-tQf" secondAttribute="bottom" constant="113" id="pr3-lQ-gLL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kBt-9U-GAH"/>
+                    </view>
+                    <connections>
+                        <outlet property="qrImage" destination="iR2-uX-KJY" id="jNT-3O-kYI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZwE-fk-1hv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1059.4202898550725" y="-189.50892857142856"/>
         </scene>
         <!--Item-->
         <scene sceneID="gxf-Ex-Wb8">
@@ -280,6 +328,7 @@
     </scenes>
     <resources>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

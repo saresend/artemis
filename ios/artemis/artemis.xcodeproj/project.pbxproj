@@ -22,6 +22,7 @@
 		22613D362454C8150081B961 /* JTAppleCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22613D2F2454A8F80081B961 /* JTAppleCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		22613D392454E9260081B961 /* AppointmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D382454E9260081B961 /* AppointmentListViewController.swift */; };
 		22613D3B2454EA050081B961 /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D3A2454EA050081B961 /* AppointmentTableViewCell.swift */; };
+		22613D3D2454EE190081B961 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D3C2454EE190081B961 /* TicketViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		22613D332454C0530081B961 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		22613D382454E9260081B961 /* AppointmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewController.swift; sourceTree = "<group>"; };
 		22613D3A2454EA050081B961 /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		22613D3C2454EE190081B961 /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				22613CFE2453ED360081B961 /* ViewController.swift */,
 				22613D2A2453F5710081B961 /* MapBaseViewController.swift */,
 				22613D002453ED360081B961 /* Main.storyboard */,
+				22613D3C2454EE190081B961 /* TicketViewController.swift */,
 				22613D3A2454EA050081B961 /* AppointmentTableViewCell.swift */,
 				22613D382454E9260081B961 /* AppointmentListViewController.swift */,
 				22613D332454C0530081B961 /* DateCell.swift */,
@@ -310,6 +313,7 @@
 				22613D2D2454A43D0081B961 /* SchedulingViewController.swift in Sources */,
 				22613D2B2453F5710081B961 /* MapBaseViewController.swift in Sources */,
 				22613CFD2453ED360081B961 /* SceneDelegate.swift in Sources */,
+				22613D3D2454EE190081B961 /* TicketViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
