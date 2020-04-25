@@ -8,15 +8,35 @@
 
 import UIKit
 
+class Appointment {
+    var title: String = ""
+    var date: Date = Date()
+    var ident: String = "yeeehaw"
+    
+    init(title: String, date: Date, ident: String) {
+        self.title = title
+        self.date = date
+        self.ident = ident
+    }
+}
+
 class AppointmentListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var appointments = [ Appointment(title: "Trader Joes", date: Date() + 250000, ident: "asdfasdf"),
+                         Appointment(title: "CVS", date: Date() + 500000, ident: "yeeehaw"),
+    Appointment(title: "Walmart", date: Date() + 1000000, ident: "oh buddy")]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return appointments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "appointCell") as! AppointmentTableViewCell
-        cell.titleLabel.text = "Trader Joes"
-        cell.dateLabel.text = "May 5th, 2020"
+        cell.titleLabel.text = appointments[indexPath.row].title
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .medium
+        
+        cell.dateLabel.text = formatter.string(from:appointments[indexPath.row].date)
         return cell
     }
     
@@ -41,5 +61,14 @@ class AppointmentListViewController: UIViewController, UITableViewDelegate, UITa
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func deleteRow(_ sender: UIButton) {
+        guard let cell =  sender.superview?.superview as? AppointmentTableViewCell  else {
+            return
+        }
+        let indexPath = appointmentTableView.indexPath(for: cell)
+        appointments.remove(at: indexPath!.row)
+        appointmentTableView.reloadData()
+        print(indexPath)
+    }
+    
 }

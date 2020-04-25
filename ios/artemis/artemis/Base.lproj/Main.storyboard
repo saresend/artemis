@@ -128,6 +128,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jm-d6-ScJ">
                                                     <rect key="frame" x="354" y="28" width="20" height="22"/>
                                                     <state key="normal" image="trash" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="deleteRow:" destination="UCn-Ms-j4H" eventType="touchUpInside" id="ysN-XZ-FAR"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
