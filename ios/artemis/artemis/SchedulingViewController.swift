@@ -40,7 +40,7 @@ extension SchedulingViewController: JTACMonthViewDataSource {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
         let startDate = Date()
-        let endDate = Date() + 26800000.0
+        let endDate = Date() + 268000.0
         return ConfigurationParameters(startDate: startDate, endDate: endDate)
     }
 }
@@ -55,6 +55,12 @@ extension SchedulingViewController: JTACMonthViewDelegate {
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         cell.dateLabel.text = cellState.text
+        if Calendar.current.isDateInToday(date) {
+            cell.dateLabel.textColor = UIColor.blue
+        }
+        if cellState.dateBelongsTo != .thisMonth {
+            cell.dateLabel.textColor = UIColor.gray
+        }
         return cell
     }
     

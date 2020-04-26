@@ -440,6 +440,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="mq0-Wu-VFA"/>
         <segue reference="kDF-eu-lnD"/>
     </inferredMetricsTieBreakers>
     <resources>
