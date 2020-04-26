@@ -7,11 +7,29 @@
 //
 
 import UIKit
+import Alamofire
+
+struct ApptParams: Encodable {
+    var len: Int
+    var timestamp: String
+    var location_id: Int
+    var user_id: Int
+    
+    init(timeStamp: String, location_id: Int) {
+        self.len = 1
+        self.timestamp = timeStamp
+        self.location_id = location_id
+        self.user_id = LoginViewController.userId
+    }
+    
+}
 
 class TimeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var titleLabel: UILabel!
     var date: Date?
+    var locationID = 0
+    private var nextViewNumber = Int()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 12
@@ -21,12 +39,12 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as! TimeCollectionViewCell
         
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute]
-        formatter.unitsStyle = .positional
-        
-        let interval = (indexPath.row + 8) * 3600
-        cell.timeLabel.text = formatter.string(from: TimeInterval(interval))!
+        let calendar = Calendar.current
+        cell.time = calendar.date(byAdding: .hour, value: 4 + indexPath.row, to: date!)
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+
+        cell.timeLabel.text = formatter.string(from:cell.time!)
         
         return cell
     }
@@ -38,6 +56,7 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
         cell.selectedLabel.textColor = UIColor.lightGray
+        date = cell.time
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -45,6 +64,39 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.selectedLabel.textColor = UIColor.clear
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toTabBar" {
+            let nextView = segue.destination as! UITabBarController
+            nextView.selectedIndex = nextViewNumber
+        }
+    }
+    
+    func dispatchSave(loc_id: Int, timestamp: String) {
+        let params = ApptParams(timeStamp: timestamp, location_id: loc_id)
+        print(params)
+        let result = AF.request("http://167.71.154.158:8000/appointments/add", method: .post, parameters: params, encoder: JSONParameterEncoder.default).response { response in
+            print(response)
+        }
+    }
+    
+    @IBAction func saveAppointment(_ sender: Any) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .short
+        let timeText = formatter.string(from:date!)
+        dispatchSave(loc_id: locationID, timestamp: timeText)
+        let alert = UIAlertController(title: "Appointment Confirmed", message: timeText, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("View", comment: "Go to Appointments"), style: .default, handler: { _ in
+            self.nextViewNumber = 1
+            self.performSegue(withIdentifier: "toTabBar", sender: nil)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Go to Map"), style: .default, handler: { _ in
+            self.nextViewNumber = 0
+            self.performSegue(withIdentifier: "toTabBar", sender: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     @IBOutlet weak var timeCollectionView: UICollectionView!
     override func viewDidLoad() {
         timeCollectionView.delegate = self

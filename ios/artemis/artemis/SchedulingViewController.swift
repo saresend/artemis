@@ -10,13 +10,16 @@ import UIKit
 import JTAppleCalendar
 
 class SchedulingViewController: UIViewController {
+    
     @IBOutlet var calendarView: JTACMonthView!
     var date: Date?
-    
+    var locationID = 0 // Should be set by segue
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarView.calendarDataSource = self
         calendarView.calendarDelegate = self
+        print("HERE IS LOCATION ID")
+        print(locationID)
     }
     
 
@@ -65,6 +68,7 @@ extension SchedulingViewController: JTACMonthViewDelegate {
         {
             let vc = segue.destination as? TimeViewController
             vc?.date = self.date
+            vc?.locationID = locationID
         }
     }
     

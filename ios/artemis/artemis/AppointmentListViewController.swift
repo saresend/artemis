@@ -69,16 +69,19 @@ class AppointmentListViewController: UIViewController, UITableViewDelegate, UITa
     func fetchDataFromSteve() {
         AF.request("http://167.71.154.158:8000/appointments/" + String(LoginViewController.userId)).validate().responseJSON { response in
             for appt in response.value as! NSArray {
+                
                 let jsonDict = appt as! NSDictionary
-                let name = "TODO Implement"
-                let time = jsonDict["timestamp"] as! String
-                let ident = jsonDict["id"] as! Int
+                let location = jsonDict["location"] as! NSDictionary
+                let appointment = jsonDict["appointment"] as! NSDictionary
+                
+                let name = location["name"] as! String
+                let time = appointment["timestamp"] as! String
+                let ident = appointment["id"] as! Int
                 let timeDate = time.toDate() ?? Date()
                 let app = Appointment(title: name, date: timeDate, ident: String(ident))
                 self.appointments.append(app)
             }
             self.appointmentTableView.reloadData()
-            print(response.value)
         }
     }
     
