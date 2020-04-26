@@ -9,11 +9,14 @@
 import UIKit
 
 class TimeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    var date: Date?
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 12
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as! TimeCollectionViewCell
@@ -24,7 +27,7 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let interval = (indexPath.row + 8) * 3600
         cell.timeLabel.text = formatter.string(from: TimeInterval(interval))!
-
+        
         return cell
     }
     
@@ -47,18 +50,22 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         timeCollectionView.delegate = self
         timeCollectionView.dataSource = self
         super.viewDidLoad()
-
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        let dateText = formatter.string(from:date!)
+        titleLabel.text = "Choose Time for " + dateText
         // Do any additional setup after loading the view.
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
