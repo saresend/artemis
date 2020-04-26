@@ -15,13 +15,13 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
 
     @IBOutlet var baseUIMap: MKMapView!
     var currUserID: Int = 0
-    var currUserLocation: CLLocation? = nil
+    var currUserLocation: MKUserLocation? = nil
     var annotationData: [(Int, String, Double, Double)] = []
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocationConfig()
-        requestLocations()
+        self.requestLocations()
     }
     
     func requestLocations() {
@@ -33,7 +33,8 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                 let annotation = self.createAnnotation(point: point)
                 self.baseUIMap.addAnnotation(annotation)
             }
-            self.baseUIMap.showAnnotations(self.baseUIMap.annotations, animated: true)
+            self.baseUIMap.showAnnotations(self.baseUIMap.annotations, animated: false)
+            self.locationManager.startUpdatingLocation()
         }
     }
     
@@ -50,7 +51,7 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
+        
         baseUIMap.delegate = self
         baseUIMap.showsUserLocation = true
     }
@@ -70,7 +71,7 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     didUpdateLocations locations: [CLLocation])
     {
         if currUserLocation == nil {
-            currUserLocation = locations.last
+            currUserLocation = baseUIMap.userLocation
             let region = MKCoordinateRegion( center: currUserLocation!.coordinate, latitudinalMeters: CLLocationDistance(exactly: 5000)!, longitudinalMeters: CLLocationDistance(exactly: 5000)!)
             baseUIMap.setRegion(region, animated: true)
         }
