@@ -26,6 +26,7 @@
 		EC6EADEA2454FA0700EEC233 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EADE92454FA0700EEC233 /* TimeCollectionViewCell.swift */; };
 		EC6EADEE2455168200EEC233 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22613D2F2454A8F80081B961 /* JTAppleCalendar.framework */; };
 		EC6EADEF2455168200EEC233 /* JTAppleCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22613D2F2454A8F80081B961 /* JTAppleCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC6EADF224552C5800EEC233 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EADF124552C5800EEC233 /* ConfirmationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		22613D3E245523F00081B961 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EC2344DD2454F2CD00BAC455 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		EC6EADE92454FA0700EEC233 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC6EADF124552C5800EEC233 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				22613CFC2453ED360081B961 /* SceneDelegate.swift */,
 				22613D2A2453F5710081B961 /* MapBaseViewController.swift */,
 				22613D002453ED360081B961 /* Main.storyboard */,
+				EC6EADF124552C5800EEC233 /* ConfirmationViewController.swift */,
 				22613D3C2454EE190081B961 /* TicketViewController.swift */,
 				22613D3A2454EA050081B961 /* AppointmentTableViewCell.swift */,
 				22613D382454E9260081B961 /* AppointmentListViewController.swift */,
@@ -318,6 +321,7 @@
 				22613D342454C0530081B961 /* DateCell.swift in Sources */,
 				22613CFB2453ED360081B961 /* AppDelegate.swift in Sources */,
 				22613D3B2454EA050081B961 /* AppointmentTableViewCell.swift in Sources */,
+				EC6EADF224552C5800EEC233 /* ConfirmationViewController.swift in Sources */,
 				22613D392454E9260081B961 /* AppointmentListViewController.swift in Sources */,
 				22613D2D2454A43D0081B961 /* SchedulingViewController.swift in Sources */,
 				22613D2B2453F5710081B961 /* MapBaseViewController.swift in Sources */,
