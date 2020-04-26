@@ -43,7 +43,7 @@ pub struct User {
     pub token: String,
 }
 
-#[derive(Insertable, Deserialize)]
+#[derive(Insertable, Deserialize, Clone)]
 #[table_name = "Users"]
 pub struct NewUser {
     pub email: String,
@@ -77,19 +77,38 @@ fn get_all_locations() -> Vec<Location> {
 
 fn create_location(new_loc: &NewLocation) {
     let conn = &*(CONN.lock().unwrap());
-    diesel::insert_into(Locations::table).values(new_loc).execute(conn).unwrap();
+    diesel::insert_into(Locations::table)
+        .values(new_loc)
+        .execute(conn)
+        .unwrap();
+}
+
+fn create_user(user: &NewUser) -> Vec<User> {
+    let conn = &*(CONN.lock().unwrap());
+    diesel::insert_into(Users)
+        .values(user)
+        .execute(conn)
+        .unwrap();
+    use schema::Users::dsl::*;
+    Users.filter(token.eq(user.clone().token)).filter(email.eq(user.clone().email)).load::<User>(conn).unwrap()
 }
 
 fn get_appointments_for_id(u_id: i32) -> Vec<Appointment> {
     use schema::Appointments::dsl::*;
     let conn: &SqliteConnection = &*(CONN.lock().unwrap());
-    let results = Appointments.filter(user_id.eq(u_id)).load::<Appointment>(conn).unwrap();
+    let results = Appointments
+        .filter(user_id.eq(u_id))
+        .load::<Appointment>(conn)
+        .unwrap();
     return results;
 }
 
 fn insert_new_appointment(appt: &NewAppointment) {
     let conn = &*(CONN.lock().unwrap());
-    diesel::insert_into(Appointments::table).values(appt).execute(conn).unwrap();
+    diesel::insert_into(Appointments::table)
+        .values(appt)
+        .execute(conn)
+        .unwrap();
 }
 
 fn get_connection() -> SqliteConnection {
@@ -115,12 +134,19 @@ async fn main() {
         .and(warp::path!("location" / "new"))
         .and(warp::body::json())
         .map(|new_loc: NewLocation| {
-            create_location(&new_loc); 
+            create_location(&new_loc);
             warp::reply::reply()
         });
 
-    let post_routes = add_appt_path.or(add_loc_path);
+    let add_user_path = warp::post()
+        .and(warp::path!("users" / "new"))
+        .and(warp::body::json())
+        .map(|new_user: NewUser| {
+           create_user(&new_user); 
+           warp::reply::reply()
+        });
 
+    let post_routes = add_appt_path.or(add_loc_path).or(add_user_path);
     let routes = post_routes.or(warp::get().and(location_path.or(appoint_path)));
     warp::serve(routes).run(([0, 0, 0, 0], 8000)).await;
 }
