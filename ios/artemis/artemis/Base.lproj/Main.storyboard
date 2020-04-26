@@ -67,6 +67,7 @@
         <scene sceneID="hMT-DO-oHM">
             <objects>
                 <tabBarController id="qtT-Kz-dBB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Dha-I7-VWy"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pn6-Gm-8ej">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -166,6 +167,7 @@
                         <viewLayoutGuide key="safeArea" id="xBh-lA-bta"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="s0K-Kq-5eq"/>
+                    <navigationItem key="navigationItem" id="rpe-xS-Pzt"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="appointmentTableView" destination="d9q-lV-9bP" id="o8Z-bL-BwW"/>
@@ -402,6 +404,9 @@
                                 <rect key="frame" x="322" y="748" width="72" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="saveAppointment:" destination="yJY-cU-dA6" eventType="touchUpInside" id="BhL-yJ-5PZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -426,6 +431,7 @@
                     <connections>
                         <outlet property="timeCollectionView" destination="bRn-qB-EW9" id="FHk-j5-1yd"/>
                         <outlet property="titleLabel" destination="taQ-Lb-jDd" id="RVQ-li-UVM"/>
+                        <segue destination="qtT-Kz-dBB" kind="show" identifier="toTabBar" id="kDF-eu-lnD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S8c-mE-xXU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -433,6 +439,9 @@
             <point key="canvasLocation" x="-386.95652173913044" y="525"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kDF-eu-lnD"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
