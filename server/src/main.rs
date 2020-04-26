@@ -68,6 +68,12 @@ pub struct NewAppointment {
     pub timestamp: String,
 }
 
+#[derive(Serialize)]
+pub struct AugResult {
+    pub location: Location,
+    pub appointment: Appointment,
+}
+
 fn get_all_locations() -> Vec<Location> {
     use schema::Locations::dsl::*;
     let conn = &*(CONN.lock().unwrap());
@@ -93,14 +99,20 @@ fn create_user(user: &NewUser) -> Vec<User> {
     Users.filter(token.eq(user.clone().token)).filter(email.eq(user.clone().email)).load::<User>(conn).unwrap()
 }
 
-fn get_appointments_for_id(u_id: i32) -> Vec<Appointment> {
-    use schema::Appointments::dsl::*;
+fn get_appointments_for_id(u_id: i32) -> Vec<AugResult> {
+    use schema::Appointments::dsl::{Appointments, user_id};
     let conn: &SqliteConnection = &*(CONN.lock().unwrap());
     let results = Appointments
         .filter(user_id.eq(u_id))
         .load::<Appointment>(conn)
         .unwrap();
-    return results;
+    use schema::Locations::dsl::*;
+    let mut aug_result = vec![];
+    for appt in results {
+        let loc = Locations.filter(id.eq(appt.location_id)).first::<Location>(conn).unwrap();
+        aug_result.push(AugResult { location: loc, appointment: appt});
+    }
+    return aug_result;
 }
 
 fn insert_new_appointment(appt: &NewAppointment) {
