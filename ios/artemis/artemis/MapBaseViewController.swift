@@ -16,6 +16,7 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     @IBOutlet var baseUIMap: MKMapView!
     var currUserID: Int = 0
     var currUserLocation: CLLocation? = nil
+    var annotationData: [(Int, String, Double, Double)] = []
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,8 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         AF.request("http://167.71.154.158:8000/location").validate().responseJSON { response in
             for location in response.value as! NSArray {
                 let jsonDict = location as! NSDictionary
-                let point = (jsonDict["name"] as! String, jsonDict["lat"] as! Double, jsonDict["lng"] as! Double)
+                let point = (jsonDict["id"] as! Int, jsonDict["name"] as! String, jsonDict["lat"] as! Double, jsonDict["lng"] as! Double)
+                self.annotationData.append(point)
                 let annotation = self.createAnnotation(point: point)
                 self.baseUIMap.addAnnotation(annotation)
             }
@@ -35,10 +37,11 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         }
     }
     
-    func createAnnotation(point: (String, Double, Double)) -> MKAnnotation {
+    func createAnnotation(point: (Int, String, Double, Double)) -> MKAnnotation {
         let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: point.1, longitude: point.2)
-        annotation.title = point.0
+        annotation.coordinate = CLLocationCoordinate2D(latitude: point.2, longitude: point.3)
+        annotation.title = point.1
+        annotation.subtitle = String(point.0)
         return annotation
     }
     
@@ -77,6 +80,16 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         print("Pin Tapped")
         performSegue(withIdentifier: "toSchedule", sender: view)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let scheduleVC = segue.destination as? SchedulingViewController else {
+            return
+        }
+        guard let senderView = sender as? MKAnnotationView else {
+            return
+        }
+        scheduleVC.locationID = Int((senderView.annotation!.subtitle)! ?? "0") ?? 0
+    }
+ 
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {

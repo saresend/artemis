@@ -7,11 +7,28 @@
 //
 
 import UIKit
+import Alamofire
+
+struct ApptParams: Encodable {
+    var len: Int
+    var timestamp: String
+    var location_id: Int
+    var user_id: Int
+    
+    init(timeStamp: String, location_id: Int) {
+        self.len = 1
+        self.timestamp = timeStamp
+        self.location_id = location_id
+        self.user_id = LoginViewController.userId
+    }
+    
+}
 
 class TimeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var titleLabel: UILabel!
     var date: Date?
+    var locationID = 0
     private var nextViewNumber = Int()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -54,11 +71,20 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    func dispatchSave(loc_id: Int, timestamp: String) {
+        let params = ApptParams(timeStamp: timestamp, location_id: loc_id)
+        print(params)
+        let result = AF.request("http://167.71.154.158:8000/appointments/add", method: .post, parameters: params, encoder: JSONParameterEncoder.default).response { response in
+            print(response)
+        }
+    }
+    
     @IBAction func saveAppointment(_ sender: Any) {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
         formatter.timeStyle = .short
         let timeText = formatter.string(from:date!)
+        dispatchSave(loc_id: locationID, timestamp: timeText)
         let alert = UIAlertController(title: "Appointment Confirmed", message: timeText, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("View", comment: "Go to Appointments"), style: .default, handler: { _ in
             self.nextViewNumber = 1
