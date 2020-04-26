@@ -20,6 +20,8 @@
 		22613D392454E9260081B961 /* AppointmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D382454E9260081B961 /* AppointmentListViewController.swift */; };
 		22613D3B2454EA050081B961 /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D3A2454EA050081B961 /* AppointmentTableViewCell.swift */; };
 		22613D3D2454EE190081B961 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22613D3C2454EE190081B961 /* TicketViewController.swift */; };
+		22613D3F245523F00081B961 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22613D3E245523F00081B961 /* Alamofire.framework */; };
+		22613D40245523F00081B961 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 22613D3E245523F00081B961 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC2344DE2454F2CD00BAC455 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2344DD2454F2CD00BAC455 /* TimeViewController.swift */; };
 		EC6EADEA2454FA0700EEC233 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6EADE92454FA0700EEC233 /* TimeCollectionViewCell.swift */; };
 		EC6EADEE2455168200EEC233 /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22613D2F2454A8F80081B961 /* JTAppleCalendar.framework */; };
@@ -51,6 +53,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				EC6EADEF2455168200EEC233 /* JTAppleCalendar.framework in Embed Frameworks */,
+				22613D40245523F00081B961 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +81,7 @@
 		22613D382454E9260081B961 /* AppointmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewController.swift; sourceTree = "<group>"; };
 		22613D3A2454EA050081B961 /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
 		22613D3C2454EE190081B961 /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
+		22613D3E245523F00081B961 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EC2344DD2454F2CD00BAC455 /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		EC6EADE92454FA0700EEC233 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC6EADEE2455168200EEC233 /* JTAppleCalendar.framework in Frameworks */,
+				22613D3F245523F00081B961 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +176,7 @@
 		22613D2E2454A8F80081B961 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22613D3E245523F00081B961 /* Alamofire.framework */,
 				22613D2F2454A8F80081B961 /* JTAppleCalendar.framework */,
 			);
 			name = Frameworks;
