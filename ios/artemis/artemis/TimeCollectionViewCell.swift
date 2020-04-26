@@ -10,7 +10,6 @@ import UIKit
 
 class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet var timeLabel: UILabel!
-    @IBOutlet weak var selectedLabel: UITextField!
-    
+    @IBOutlet weak var labelBorderView: UIView!
     var time: Date?
 }

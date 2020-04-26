@@ -11,6 +11,7 @@ import JTAppleCalendar
 
 class SchedulingViewController: UIViewController {
     
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet var calendarView: JTACMonthView!
     var date: Date?
     @IBOutlet var backgroundView: UIView!
@@ -24,6 +25,7 @@ class SchedulingViewController: UIViewController {
         backgroundView.layer.cornerRadius = 40
         backgroundView.backgroundColor = UIColor(hex: "#2D7DD2FF")
         calendarView.backgroundColor = UIColor(hex: "#2D7DD2FF")
+        cancelButton.tintColor = UIColor.init(hex: "#2d7dd2ff")
     }
     
 
@@ -36,7 +38,10 @@ class SchedulingViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension SchedulingViewController: JTACMonthViewDataSource {

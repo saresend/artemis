@@ -296,6 +296,10 @@
                                 <state key="normal" image="xmark" catalog="system">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="cancel:" destination="aID-KT-UrT" eventType="touchUpInside" id="EhG-7S-T8c"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmO-6A-S0l">
                                 <rect key="frame" x="34" y="233.5" width="118" height="32"/>
@@ -359,6 +363,7 @@
                     <connections>
                         <outlet property="backgroundView" destination="BUx-7v-TV4" id="bBm-lA-Iv5"/>
                         <outlet property="calendarView" destination="7IB-p2-fLd" id="zgh-R3-DnG"/>
+                        <outlet property="cancelButton" destination="DHe-TP-rJc" id="JpN-bf-JjT"/>
                         <segue destination="yJY-cU-dA6" kind="presentation" identifier="toTime" id="mq0-Wu-VFA"/>
                     </connections>
                 </viewController>
@@ -385,6 +390,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="cancel:" destination="yJY-cU-dA6" eventType="touchUpInside" id="DVC-eG-8NB"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC7-gn-ri1">
                                 <rect key="frame" x="34" y="266" width="129" height="32"/>
@@ -409,14 +417,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="." textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="OWe-7y-goC">
-                                                    <rect key="frame" x="59" y="84.5" width="10" height="43.5"/>
-                                                    <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Ye-n3J" userLabel="Time Label">
-                                                    <rect key="frame" x="45" y="53.5" width="38" height="21"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-WR-RyB">
+                                                    <rect key="frame" x="1" y="5" width="126" height="118"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Ye-n3J" userLabel="Time Label">
+                                                    <rect key="frame" x="45" y="53.5" width="39" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -424,13 +430,15 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Nsb-Ye-n3J" firstAttribute="centerY" secondItem="guQ-Vh-wx1" secondAttribute="centerY" id="CrK-GT-Cfx"/>
+                                                <constraint firstItem="ZIO-WR-RyB" firstAttribute="top" secondItem="guQ-Vh-wx1" secondAttribute="top" constant="5" id="HXc-7X-7Yu"/>
                                                 <constraint firstItem="Nsb-Ye-n3J" firstAttribute="centerX" secondItem="guQ-Vh-wx1" secondAttribute="centerX" id="TqS-0d-3al"/>
-                                                <constraint firstItem="OWe-7y-goC" firstAttribute="centerX" secondItem="guQ-Vh-wx1" secondAttribute="centerX" id="kjB-hy-TFe"/>
-                                                <constraint firstAttribute="bottom" secondItem="OWe-7y-goC" secondAttribute="bottom" id="y1p-cC-Urx"/>
+                                                <constraint firstItem="ZIO-WR-RyB" firstAttribute="leading" secondItem="guQ-Vh-wx1" secondAttribute="leading" constant="1" id="azK-r1-QJi"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZIO-WR-RyB" secondAttribute="trailing" constant="1" id="eae-Pj-nwD"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZIO-WR-RyB" secondAttribute="bottom" constant="5" id="pqQ-Ql-Y8W"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="selectedLabel" destination="OWe-7y-goC" id="tMi-LK-cD8"/>
+                                            <outlet property="labelBorderView" destination="ZIO-WR-RyB" id="MsP-0U-0jF"/>
                                             <outlet property="timeLabel" destination="Nsb-Ye-n3J" id="AhH-eX-VFU"/>
                                         </connections>
                                     </collectionViewCell>
@@ -465,6 +473,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="oNA-Au-jbG"/>
                     <connections>
+                        <outlet property="cancelButton" destination="kaj-VD-kyK" id="UhI-mT-5Ur"/>
+                        <outlet property="confirmButton" destination="blY-za-TTT" id="i50-T4-ST8"/>
                         <outlet property="timeCollectionView" destination="bRn-qB-EW9" id="FHk-j5-1yd"/>
                         <outlet property="titleLabel" destination="taQ-Lb-jDd" id="RVQ-li-UVM"/>
                         <segue destination="qtT-Kz-dBB" kind="show" identifier="toTabBar" id="kDF-eu-lnD"/>
