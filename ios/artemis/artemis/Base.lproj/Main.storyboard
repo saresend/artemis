@@ -371,10 +371,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWe-7y-goC">
-                                                    <rect key="frame" x="57" y="68" width="14" height="60"/>
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="." textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="OWe-7y-goC">
+                                                    <rect key="frame" x="59" y="84.5" width="10" height="43.5"/>
                                                     <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Ye-n3J" userLabel="Time Label">
@@ -425,6 +425,7 @@
                     <navigationItem key="navigationItem" id="oNA-Au-jbG"/>
                     <connections>
                         <outlet property="timeCollectionView" destination="bRn-qB-EW9" id="FHk-j5-1yd"/>
+                        <outlet property="titleLabel" destination="taQ-Lb-jDd" id="RVQ-li-UVM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S8c-mE-xXU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
