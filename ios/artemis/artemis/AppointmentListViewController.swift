@@ -11,10 +11,10 @@ import Alamofire
 
 class Appointment {
     var title: String = ""
-    var date: Date = Date()
+    var date: String = ""
     var ident: String = "yeeehaw"
     
-    init(title: String, date: Date, ident: String) {
+    init(title: String, date: String, ident: String) {
         self.title = title
         self.date = date
         self.ident = ident
@@ -22,9 +22,7 @@ class Appointment {
 }
 
 class AppointmentListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var appointments = [ Appointment(title: "Trader Joes", date: Date() + 250000, ident: "asdfasdf"),
-                         Appointment(title: "CVS", date: Date() + 500000, ident: "yeeehaw"),
-    Appointment(title: "Walmart", date: Date() + 1000000, ident: "oh buddy")]
+    var appointments: [Appointment] = []
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return appointments.count
     }
@@ -37,7 +35,7 @@ class AppointmentListViewController: UIViewController, UITableViewDelegate, UITa
         formatter.dateStyle = .long
         formatter.timeStyle = .medium
         
-        cell.dateLabel.text = formatter.string(from:appointments[indexPath.row].date)
+        cell.dateLabel.text = appointments[indexPath.row].date
         return cell
     }
     
@@ -52,19 +50,6 @@ class AppointmentListViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
         fetchDataFromSteve()
     }
-    /*
-     func requestLocations() {
-            AF.request("http://167.71.154.158:8000/location").validate().responseJSON { response in
-                for location in response.value as! NSArray {
-                    let jsonDict = location as! NSDictionary
-                    let point = (jsonDict["name"] as! String, jsonDict["lat"] as! Double, jsonDict["lng"] as! Double)
-                    let annotation = self.createAnnotation(point: point)
-                    self.baseUIMap.addAnnotation(annotation)
-                }
-                self.baseUIMap.showAnnotations(self.baseUIMap.annotations, animated: true)
-            }
-        }
-     */
     
     func fetchDataFromSteve() {
         AF.request("http://167.71.154.158:8000/appointments/" + String(LoginViewController.userId)).validate().responseJSON { response in
@@ -77,8 +62,7 @@ class AppointmentListViewController: UIViewController, UITableViewDelegate, UITa
                 let name = location["name"] as! String
                 let time = appointment["timestamp"] as! String
                 let ident = appointment["id"] as! Int
-                let timeDate = time.toDate() ?? Date()
-                let app = Appointment(title: name, date: timeDate, ident: String(ident))
+                let app = Appointment(title: name, date: time, ident: String(ident))
                 self.appointments.append(app)
             }
             self.appointmentTableView.reloadData()
