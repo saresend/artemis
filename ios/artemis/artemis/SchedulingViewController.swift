@@ -69,11 +69,14 @@ extension SchedulingViewController: JTACMonthViewDelegate {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         cell.dateLabel.text = cellState.text
         cell.dateLabel.textColor = UIColor.white
+        if cellState.dateBelongsTo != .thisMonth {
+            cell.isHidden = true
+        }
+        if date.timeIntervalSinceNow < 0 {
+            cell.dateLabel.textColor = UIColor.lightGray
+        }
         if Calendar.current.isDateInToday(date) {
             cell.dateLabel.textColor = ThemeOrange
-        }
-        if cellState.dateBelongsTo != .thisMonth {
-            cell.dateLabel.textColor = UIColor.lightGray
         }
         return cell
     }
