@@ -88,6 +88,7 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             return
         }
         scheduleVC.locationID = Int((senderView.annotation!.subtitle)! ?? "0") ?? 0
+        scheduleVC.locationName = senderView.annotation!.title! ?? ""
     }
  
     

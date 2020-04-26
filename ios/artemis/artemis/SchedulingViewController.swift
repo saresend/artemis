@@ -12,10 +12,12 @@ import JTAppleCalendar
 class SchedulingViewController: UIViewController {
     
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet var calendarView: JTACMonthView!
     var date: Date?
     @IBOutlet var backgroundView: UIView!
     var locationID = 0 // Should be set by segue
+    var locationName = "" // SHould be set by seguee
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarView.calendarDataSource = self
@@ -24,8 +26,9 @@ class SchedulingViewController: UIViewController {
         print(locationID)
         backgroundView.layer.cornerRadius = 40
         backgroundView.backgroundColor = UIColor(hex: "#3581B8FF")
-        calendarView.backgroundColor = UIColor(hex: "#3581B8FF")
-        cancelButton.tintColor = UIColor.init(hex: "#2d7dd2ff")
+        calendarView.backgroundColor = UIColor.clear
+        locationLabel.text = locationName
+        locationLabel.textColor = UIColor(hex: "#3581B8FF")
     }
     
 

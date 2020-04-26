@@ -26,8 +26,9 @@ struct ApptParams: Encodable {
 
 class TimeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     var date: Date?
     var locationID = 0
@@ -51,6 +52,7 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         formatter.timeStyle = .short
         
         cell.timeLabel.text = formatter.string(from:cell.time!)
+        cell.labelBorderView.backgroundColor = UIColor.clear
         cell.labelBorderView.layer.borderWidth = 4.0
         cell.labelBorderView.layer.cornerRadius = 20
         cell.labelBorderView.layer.borderColor = UIColor.clear.cgColor
@@ -63,7 +65,7 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
-        cell.labelBorderView.layer.borderColor = UIColor.init(hex: "#2d7dd2ff")!.cgColor
+        cell.labelBorderView.layer.borderColor = UIColor.init(hex: "#3581B8FF")!.cgColor
         date = cell.time
     }
     
@@ -115,12 +117,17 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         timeCollectionView.dataSource = self
         super.viewDidLoad()
         
+        backgroundView.layer.cornerRadius = 40
+        backgroundView.backgroundColor = UIColor(hex: "#FCAE97FF")
+        timeCollectionView.backgroundColor = UIColor.clear
+        
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
-        let dateText = formatter.string(from:date!)
-        titleLabel.text = "Choose Time for " + dateText
-        cancelButton.tintColor = UIColor.init(hex: "#2d7dd2ff")
-        confirmButton.tintColor = UIColor.init(hex: "#2d7dd2ff")
+        dateLabel.text = formatter.string(from:date!)
+        dateLabel.textColor = UIColor(hex: "#3581B8FF")
+        confirmButton.tintColor = UIColor.white
+        confirmButton.backgroundColor = UIColor(hex: "#3581B8FF")
+        confirmButton.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
     
