@@ -52,8 +52,9 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         formatter.timeStyle = .short
         
         cell.timeLabel.text = formatter.string(from:cell.time!)
+        cell.timeLabel.textColor = UIColor.white
         cell.labelBorderView.backgroundColor = UIColor.clear
-        cell.labelBorderView.layer.borderWidth = 3.5
+        cell.labelBorderView.layer.borderWidth = 2.5
         cell.labelBorderView.layer.cornerRadius = 20
         cell.labelBorderView.layer.borderColor = UIColor.clear.cgColor
         return cell
@@ -65,15 +66,13 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
-        cell.labelBorderView.layer.borderColor = ThemeBlue!.cgColor
-        cell.timeLabel.textColor = ThemeBlue
+        cell.labelBorderView.layer.borderColor = UIColor.white.cgColor
         date = cell.time
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
         cell.labelBorderView.layer.borderColor = UIColor.clear.cgColor
-        cell.timeLabel.textColor = UIColor.black
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,8 +109,7 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.nextViewNumber = 0
             self.performSegue(withIdentifier: "toTabBar", sender: nil)
         }))
-        
-        alert.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBOutlet weak var timeCollectionView: UICollectionView!
