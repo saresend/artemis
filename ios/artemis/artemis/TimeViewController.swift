@@ -15,7 +15,11 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private var nextViewNumber = Int()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return 3
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -23,10 +27,10 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as! TimeCollectionViewCell
         
         let calendar = Calendar.current
-        cell.time = calendar.date(byAdding: .hour, value: 4 + indexPath.row, to: date!)
+        cell.time = calendar.date(byAdding: .hour, value: 4 + indexPath.row + indexPath.section * 3, to: date!)
         let formatter = DateFormatter()
         formatter.timeStyle = .short
-
+        
         cell.timeLabel.text = formatter.string(from:cell.time!)
         
         return cell
@@ -70,7 +74,7 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }))
         self.present(alert, animated: true, completion: nil)
     }
-
+    
     @IBOutlet weak var timeCollectionView: UICollectionView!
     override func viewDidLoad() {
         timeCollectionView.delegate = self
