@@ -100,11 +100,11 @@ fn get_connection() -> SqliteConnection {
 
 #[tokio::main]
 async fn main() {
-    let location_path = warp::path("location/").map(|| warp::reply::json(&get_all_locations()));
+    let location_path = warp::path("location").map(|| warp::reply::json(&get_all_locations()));
     let appoint_path =
         warp::path!("appointments" / i32).map(|a| warp::reply::json(&get_appointments_for_id(a)));
     let add_appt_path = warp::post()
-        .and(warp::path("appointments/add"))
+        .and(warp::path!("appointments" / "add"))
         .and(warp::body::json())
         .map(|new_apt: NewAppointment| {
             insert_new_appointment(&new_apt);
@@ -112,7 +112,7 @@ async fn main() {
         });
 
     let add_loc_path = warp::post()
-        .and(warp::path("location/new"))
+        .and(warp::path!("location" / "new"))
         .and(warp::body::json())
         .map(|new_loc: NewLocation| {
             create_location(&new_loc); 
