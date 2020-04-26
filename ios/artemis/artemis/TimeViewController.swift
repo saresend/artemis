@@ -26,7 +26,9 @@ struct ApptParams: Encodable {
 
 class TimeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var confirmButton: UIButton!
     var date: Date?
     var locationID = 0
     private var nextViewNumber = Int()
@@ -36,7 +38,7 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -44,15 +46,14 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as! TimeCollectionViewCell
         
         let calendar = Calendar.current
-        cell.time = calendar.date(byAdding: .hour, value: 8 + indexPath.row + indexPath.section * 3, to: date!)
+        cell.time = calendar.date(byAdding: .hour, value: 7 + indexPath.row + indexPath.section * 3, to: date!)
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         
         cell.timeLabel.text = formatter.string(from:cell.time!)
-        cell.timeLabel.layer.borderWidth = 3.0
-        cell.timeLabel.layer.cornerRadius = 8
-        cell.timeLabel.layer.borderColor = UIColor.clear.cgColor
-        
+        cell.labelBorderView.layer.borderWidth = 4.0
+        cell.labelBorderView.layer.cornerRadius = 20
+        cell.labelBorderView.layer.borderColor = UIColor.clear.cgColor
         return cell
     }
     
@@ -62,14 +63,13 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
-        print("selected")
-        cell.timeLabel.layer.borderColor = UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00).cgColor
+        cell.labelBorderView.layer.borderColor = UIColor.init(hex: "#2d7dd2ff")!.cgColor
         date = cell.time
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
-        cell.timeLabel.layer.borderColor = UIColor.clear.cgColor
+        cell.labelBorderView.layer.borderColor = UIColor.clear.cgColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -85,6 +85,10 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let result = AF.request("http://167.71.154.158:8000/appointments/add", method: .post, parameters: params, encoder: JSONParameterEncoder.default).response { response in
             print(response)
         }
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveAppointment(_ sender: Any) {
@@ -115,6 +119,8 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         formatter.dateStyle = .medium
         let dateText = formatter.string(from:date!)
         titleLabel.text = "Choose Time for " + dateText
+        cancelButton.tintColor = UIColor.init(hex: "#2d7dd2ff")
+        confirmButton.tintColor = UIColor.init(hex: "#2d7dd2ff")
         // Do any additional setup after loading the view.
     }
     

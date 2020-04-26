@@ -265,6 +265,9 @@
                                 <rect key="frame" x="20" y="20" width="17.5" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="cancel:" destination="aID-KT-UrT" eventType="touchUpInside" id="EhG-7S-T8c"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmO-6A-S0l">
                                 <rect key="frame" x="34" y="266" width="118" height="32"/>
@@ -327,6 +330,7 @@
                     <navigationItem key="navigationItem" id="dMJ-DT-vre"/>
                     <connections>
                         <outlet property="calendarView" destination="7IB-p2-fLd" id="zgh-R3-DnG"/>
+                        <outlet property="cancelButton" destination="DHe-TP-rJc" id="JpN-bf-JjT"/>
                         <segue destination="yJY-cU-dA6" kind="presentation" identifier="toTime" id="mq0-Wu-VFA"/>
                     </connections>
                 </viewController>
@@ -352,6 +356,9 @@
                                 <rect key="frame" x="20" y="20" width="17.5" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="cancel:" destination="yJY-cU-dA6" eventType="touchUpInside" id="DVC-eG-8NB"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC7-gn-ri1">
                                 <rect key="frame" x="34" y="266" width="129" height="32"/>
@@ -376,8 +383,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Ye-n3J" userLabel="Time Label">
-                                                    <rect key="frame" x="45" y="53.5" width="38" height="21"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-WR-RyB">
+                                                    <rect key="frame" x="1" y="5" width="126" height="118"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Ye-n3J" userLabel="Time Label">
+                                                    <rect key="frame" x="45" y="53.5" width="39" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -385,10 +396,15 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Nsb-Ye-n3J" firstAttribute="centerY" secondItem="guQ-Vh-wx1" secondAttribute="centerY" id="CrK-GT-Cfx"/>
+                                                <constraint firstItem="ZIO-WR-RyB" firstAttribute="top" secondItem="guQ-Vh-wx1" secondAttribute="top" constant="5" id="HXc-7X-7Yu"/>
                                                 <constraint firstItem="Nsb-Ye-n3J" firstAttribute="centerX" secondItem="guQ-Vh-wx1" secondAttribute="centerX" id="TqS-0d-3al"/>
+                                                <constraint firstItem="ZIO-WR-RyB" firstAttribute="leading" secondItem="guQ-Vh-wx1" secondAttribute="leading" constant="1" id="azK-r1-QJi"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZIO-WR-RyB" secondAttribute="trailing" constant="1" id="eae-Pj-nwD"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZIO-WR-RyB" secondAttribute="bottom" constant="5" id="pqQ-Ql-Y8W"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="labelBorderView" destination="ZIO-WR-RyB" id="MsP-0U-0jF"/>
                                             <outlet property="timeLabel" destination="Nsb-Ye-n3J" id="AhH-eX-VFU"/>
                                         </connections>
                                     </collectionViewCell>
@@ -423,6 +439,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="oNA-Au-jbG"/>
                     <connections>
+                        <outlet property="cancelButton" destination="kaj-VD-kyK" id="UhI-mT-5Ur"/>
+                        <outlet property="confirmButton" destination="blY-za-TTT" id="i50-T4-ST8"/>
                         <outlet property="timeCollectionView" destination="bRn-qB-EW9" id="FHk-j5-1yd"/>
                         <outlet property="titleLabel" destination="taQ-Lb-jDd" id="RVQ-li-UVM"/>
                         <segue destination="qtT-Kz-dBB" kind="show" identifier="toTabBar" id="kDF-eu-lnD"/>
@@ -434,7 +452,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RGE-GC-yt8"/>
+        <segue reference="kDF-eu-lnD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
