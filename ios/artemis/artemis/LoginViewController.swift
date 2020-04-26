@@ -9,12 +9,20 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    @IBOutlet var sunsetView: UIView!
     @IBOutlet var signInButton: UIButton!
     static var userId: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         LoginViewController.userId = 1
-        signInButton.backgroundColor = UIColor.init(hex: "#FF00FF")
+        signInButton.backgroundColor = UIColor.init(hex: "#3581B8FF")
+        signInButton.titleLabel?.textColor = UIColor.white
+        signInButton.layer.cornerRadius = 30
+        sunsetView.backgroundColor = UIColor.init(hex: "#FCAE97FF")
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: sunsetView.bounds.size.width / 2, y: sunsetView.bounds.size.height), radius: sunsetView.bounds.size.height / 2  , startAngle: 0.0, endAngle: CGFloat(M_PI), clockwise: false)
+        let circleShape = CAShapeLayer()
+        circleShape.path = circlePath.cgPath
+        sunsetView.layer.mask = circleShape
     }
     
 
