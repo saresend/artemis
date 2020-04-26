@@ -36,12 +36,14 @@ class AppointmentListViewController: UIViewController, UITableViewDelegate, UITa
         formatter.timeStyle = .medium
         
         cell.dateLabel.text = appointments[indexPath.row].date
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
     @IBOutlet var appointmentTableView: UITableView!
     
     override func viewDidLoad() {

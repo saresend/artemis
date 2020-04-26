@@ -119,12 +119,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLc-eQ-RmR">
-                                <rect key="frame" x="20" y="86" width="210" height="59"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="43"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d9q-lV-9bP">
                                 <rect key="frame" x="10" y="203" width="394" height="556"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -182,16 +176,32 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjG-JR-YXg">
+                                <rect key="frame" x="116.5" y="155" width="181" height="2"/>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.52941176470588236" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="181" id="GYL-K5-xmp"/>
+                                    <constraint firstAttribute="height" constant="2" id="me1-gV-eGh"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLc-eQ-RmR">
+                                <rect key="frame" x="102" y="86" width="210" height="59"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="43"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="kjG-JR-YXg" firstAttribute="top" secondItem="lLc-eQ-RmR" secondAttribute="bottom" constant="10" id="P0d-eC-h0x"/>
                             <constraint firstItem="lLc-eQ-RmR" firstAttribute="top" secondItem="xBh-lA-bta" secondAttribute="top" constant="86" id="PR3-T5-tDz"/>
+                            <constraint firstItem="kjG-JR-YXg" firstAttribute="centerX" secondItem="xBh-lA-bta" secondAttribute="centerX" id="UER-FN-8AW"/>
+                            <constraint firstItem="lLc-eQ-RmR" firstAttribute="centerX" secondItem="xBh-lA-bta" secondAttribute="centerX" id="Y9k-bG-vgp"/>
                             <constraint firstItem="xBh-lA-bta" firstAttribute="bottom" secondItem="d9q-lV-9bP" secondAttribute="bottom" id="Zeg-Fq-JqG"/>
                             <constraint firstItem="xBh-lA-bta" firstAttribute="trailing" secondItem="d9q-lV-9bP" secondAttribute="trailing" constant="10" id="clT-4l-fMo"/>
                             <constraint firstItem="d9q-lV-9bP" firstAttribute="leading" secondItem="xBh-lA-bta" secondAttribute="leading" constant="10" id="hZl-Uy-Ryk"/>
                             <constraint firstItem="d9q-lV-9bP" firstAttribute="top" secondItem="lLc-eQ-RmR" secondAttribute="bottom" constant="58" id="iZi-Im-SPl"/>
                             <constraint firstItem="d9q-lV-9bP" firstAttribute="centerX" secondItem="xBh-lA-bta" secondAttribute="centerX" id="vux-eO-tW7"/>
-                            <constraint firstItem="lLc-eQ-RmR" firstAttribute="leading" secondItem="xBh-lA-bta" secondAttribute="leading" constant="20" id="zGN-QN-cMG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xBh-lA-bta"/>
                     </view>
@@ -231,7 +241,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LwZ-JC-uYP">
                                 <rect key="frame" x="87" y="232" width="240" height="2"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.52941176470588236" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="EbD-IK-IsK"/>
                                     <constraint firstAttribute="height" constant="2" id="JeW-BP-9W7"/>
@@ -555,7 +565,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kDF-eu-lnD"/>
+        <segue reference="70e-R7-eeH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
