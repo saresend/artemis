@@ -4,6 +4,7 @@ extern crate diesel;
 #[macro_use]
 extern crate serde_derive;
 
+use tokio;
 use warp::Filter;
 
 mod schema;
@@ -71,7 +72,7 @@ fn get_all_locations() -> Vec<Location> {
     todo!()
 }
 
-fn get_appointments_for_token(token: String) -> Vec<Appointment> {
+fn get_appointments_for_id(id: i32) -> Vec<Appointment> {
     todo!()
 }
 
@@ -85,9 +86,19 @@ fn get_connection() -> SqliteConnection {
     SqliteConnection::establish(&db_url).expect("Error connecting")
 }
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let location_path = warp::path("location/").map(|| warp::reply::json(&get_all_locations()));
+    let appoint_path =
+        warp::path!("appointments" / i32).map(|a| warp::reply::json(&get_appointments_for_id(a)));
+    let add_appt_path = warp::post()
+        .and(warp::path("appointments/add"))
+        .and(warp::body::json())
+        .map(|new_apt: NewAppointment| {
+            insert_new_appointment(&new_apt);
+            warp::reply::reply()
+        });
 
-    let routes = warp::get().and(location_path);
-    warp::serve(routes).run(([0, 0, 0, 0], 8000));
+    let routes = add_appt_path.or(warp::get().and(location_path.or(appoint_path)));
+    warp::serve(routes).run(([0, 0, 0, 0], 8000)).await;
 }
