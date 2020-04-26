@@ -14,21 +14,13 @@ import Alamofire
 class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var baseUIMap: MKMapView!
+    var currUserID: Int = 0
     var currUserLocation: CLLocation? = nil
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocationConfig()
         requestLocations()
-        /*
-        let points = [(38.5449, -121.7405), (38.546487, -121.761509), (38.544387, -121.743470), (38.544127, -121.742711), (38.554487, -121.786970)]
-        let annotations = generateAnnotations(points: points)
-        for annotation in annotations {
-            print("Adding annotation", annotation)
-            baseUIMap.addAnnotation(annotation)
-        }
-         */
-       
     }
     
     func requestLocations() {
@@ -83,7 +75,6 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
         print("Pin Tapped")
         performSegue(withIdentifier: "toSchedule", sender: view)
     }
