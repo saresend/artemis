@@ -142,8 +142,8 @@ async fn main() {
         .and(warp::path!("users" / "new"))
         .and(warp::body::json())
         .map(|new_user: NewUser| {
-           create_user(&new_user); 
-           warp::reply::reply()
+           let res = create_user(&new_user); 
+           warp::reply::json(&res)
         });
 
     let post_routes = add_appt_path.or(add_loc_path).or(add_user_path);
