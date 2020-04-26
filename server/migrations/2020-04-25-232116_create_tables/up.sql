@@ -1,0 +1,26 @@
+-- Your SQL goes here
+
+CREATE TABLE Users (
+	id INTEGER PRIMARY KEY NOT NULL,
+	email TEXT NOT NULL,
+	token TEXT NOT NULL
+);
+
+CREATE TABLE Locations (
+	id INTEGER PRIMARY KEY NOT NULL,
+	name TEXT NOT NULL,
+	lat REAL NOT NULL,
+	lng REAL NOT NULL
+);
+
+CREATE TABLE Appointments (
+	id INTEGER PRIMARY KEY NOT NULL,
+	len INTEGER NOT NULL,
+	timestamp TEXT NOT NULL,
+	location_id INTEGER NOT NULL,
+	user_id INTEGER NOT NULL,
+	FOREIGN KEY (location_id)
+		REFERENCES Locations (id)
+	FOREIGN KEY (user_id)
+		REFERENCES Users (id)
+);
