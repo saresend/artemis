@@ -1,1 +1,2 @@
 github "patchthecode/JTAppleCalendar" ~> 8.0.0
+github "Alamofire/Alamofire" ~> 5.1

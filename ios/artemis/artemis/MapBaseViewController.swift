@@ -9,22 +9,37 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Alamofire
 
 class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var baseUIMap: MKMapView!
+    var currUserID: Int = 0
     var currUserLocation: CLLocation? = nil
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocationConfig()
-        let points = [(38.5449, -121.7405), (38.546487, -121.761509), (38.544387, -121.743470), (38.544127, -121.742711), (38.554487, -121.786970)]
-        let annotations = generateAnnotations(points: points)
-        for annotation in annotations {
-            print("Adding annotation", annotation)
-            baseUIMap.addAnnotation(annotation)
+        requestLocations()
+    }
+    
+    func requestLocations() {
+        AF.request("http://167.71.154.158:8000/location").validate().responseJSON { response in
+            for location in response.value as! NSArray {
+                let jsonDict = location as! NSDictionary
+                let point = (jsonDict["name"] as! String, jsonDict["lat"] as! Double, jsonDict["lng"] as! Double)
+                let annotation = self.createAnnotation(point: point)
+                self.baseUIMap.addAnnotation(annotation)
+            }
+            self.baseUIMap.showAnnotations(self.baseUIMap.annotations, animated: true)
         }
-        baseUIMap.showAnnotations(baseUIMap.annotations, animated: true)
+    }
+    
+    func createAnnotation(point: (String, Double, Double)) -> MKAnnotation {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: point.1, longitude: point.2)
+        annotation.title = point.0
+        return annotation
     }
     
     func setupLocationConfig() {
@@ -60,7 +75,6 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
         print("Pin Tapped")
         performSegue(withIdentifier: "toSchedule", sender: view)
     }
@@ -77,7 +91,6 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             } else {
                 marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: pinIdent)
             }
-            marker.glyphText = "Trader Joes"
             marker.displayPriority = .required
             return marker
         }

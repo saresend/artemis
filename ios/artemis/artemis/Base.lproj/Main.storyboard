@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="artemis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="artemis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,7 +251,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Appointment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcs-nN-JJQ">
-                                <rect key="frame" x="20" y="80" width="257" height="107"/>
+                                <rect key="frame" x="20" y="80" width="344" height="107"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -284,8 +284,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ9-VZ-IZK">
-                                                    <rect key="frame" x="43" y="54" width="36" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ9-VZ-IZK">
+                                                    <rect key="frame" x="46" y="53.5" width="36" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -315,7 +315,7 @@
                             <constraint firstItem="UmO-6A-S0l" firstAttribute="leading" secondItem="ass-UR-gJ1" secondAttribute="leading" constant="34" id="X71-Zs-ykb"/>
                             <constraint firstItem="ass-UR-gJ1" firstAttribute="bottom" secondItem="7IB-p2-fLd" secondAttribute="bottom" id="pLu-6D-MDq"/>
                             <constraint firstItem="7IB-p2-fLd" firstAttribute="top" secondItem="UmO-6A-S0l" secondAttribute="bottom" constant="20" id="zNz-Xt-uK9"/>
-                            <constraint firstItem="ass-UR-gJ1" firstAttribute="trailing" secondItem="hcs-nN-JJQ" secondAttribute="trailing" constant="137" id="zlp-Fp-ybl"/>
+                            <constraint firstItem="ass-UR-gJ1" firstAttribute="trailing" secondItem="hcs-nN-JJQ" secondAttribute="trailing" constant="50" id="zlp-Fp-ybl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ass-UR-gJ1"/>
                     </view>
@@ -338,7 +338,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Time for Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taQ-Lb-jDd">
-                                <rect key="frame" x="20" y="80" width="257" height="107"/>
+                                <rect key="frame" x="20" y="80" width="344" height="107"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -354,8 +354,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bRn-qB-EW9">
-                                <rect key="frame" x="20" y="318" width="374" height="490"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bRn-qB-EW9" userLabel="Time Collection View">
+                                <rect key="frame" x="20" y="318" width="374" height="416"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H9y-W3-TpH">
                                     <size key="itemSize" width="128" height="128"/>
@@ -364,14 +364,20 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HmS-i4-fSs">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="timeCell" id="HmS-i4-fSs" customClass="TimeCollectionViewCell" customModule="artemis" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="guQ-Vh-wx1">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Ye-n3J" userLabel="Time">
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="." textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="OWe-7y-goC">
+                                                    <rect key="frame" x="59" y="84.5" width="10" height="43.5"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Ye-n3J" userLabel="Time Label">
                                                     <rect key="frame" x="45" y="53.5" width="38" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -381,22 +387,35 @@
                                             <constraints>
                                                 <constraint firstItem="Nsb-Ye-n3J" firstAttribute="centerY" secondItem="guQ-Vh-wx1" secondAttribute="centerY" id="CrK-GT-Cfx"/>
                                                 <constraint firstItem="Nsb-Ye-n3J" firstAttribute="centerX" secondItem="guQ-Vh-wx1" secondAttribute="centerX" id="TqS-0d-3al"/>
+                                                <constraint firstItem="OWe-7y-goC" firstAttribute="centerX" secondItem="guQ-Vh-wx1" secondAttribute="centerX" id="kjB-hy-TFe"/>
+                                                <constraint firstAttribute="bottom" secondItem="OWe-7y-goC" secondAttribute="bottom" id="y1p-cC-Urx"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="selectedLabel" destination="OWe-7y-goC" id="tMi-LK-cD8"/>
+                                            <outlet property="timeLabel" destination="Nsb-Ye-n3J" id="AhH-eX-VFU"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blY-za-TTT">
+                                <rect key="frame" x="322" y="748" width="72" height="40"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="Confirm"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="XC7-gn-ri1" firstAttribute="leading" secondItem="KcZ-xL-FHC" secondAttribute="leading" constant="34" id="BaR-03-jiJ"/>
                             <constraint firstItem="kaj-VD-kyK" firstAttribute="leading" secondItem="KcZ-xL-FHC" secondAttribute="leading" constant="20" id="IOM-oO-Lbs"/>
+                            <constraint firstItem="KcZ-xL-FHC" firstAttribute="bottom" secondItem="blY-za-TTT" secondAttribute="bottom" constant="20" id="MLP-Mf-5UP"/>
                             <constraint firstItem="KcZ-xL-FHC" firstAttribute="trailing" secondItem="bRn-qB-EW9" secondAttribute="trailing" constant="20" id="Mbx-Nc-SzS"/>
-                            <constraint firstItem="KcZ-xL-FHC" firstAttribute="bottom" secondItem="bRn-qB-EW9" secondAttribute="bottom" id="YTI-Tn-pBg"/>
+                            <constraint firstItem="KcZ-xL-FHC" firstAttribute="trailing" secondItem="blY-za-TTT" secondAttribute="trailing" constant="20" id="Mzc-bc-eJX"/>
                             <constraint firstItem="XC7-gn-ri1" firstAttribute="top" secondItem="taQ-Lb-jDd" secondAttribute="bottom" constant="79" id="Yzu-UI-3Pb"/>
                             <constraint firstItem="bRn-qB-EW9" firstAttribute="top" secondItem="XC7-gn-ri1" secondAttribute="bottom" constant="20" id="a1z-UU-IzJ"/>
+                            <constraint firstItem="blY-za-TTT" firstAttribute="top" secondItem="bRn-qB-EW9" secondAttribute="bottom" constant="14" id="d8n-Pe-Ter"/>
                             <constraint firstItem="taQ-Lb-jDd" firstAttribute="top" secondItem="kaj-VD-kyK" secondAttribute="bottom" constant="14" id="ihe-xg-mJ1"/>
-                            <constraint firstItem="KcZ-xL-FHC" firstAttribute="trailing" secondItem="taQ-Lb-jDd" secondAttribute="trailing" constant="137" id="kSc-hu-XeK"/>
+                            <constraint firstItem="KcZ-xL-FHC" firstAttribute="trailing" secondItem="taQ-Lb-jDd" secondAttribute="trailing" constant="50" id="kSc-hu-XeK"/>
                             <constraint firstItem="kaj-VD-kyK" firstAttribute="top" secondItem="KcZ-xL-FHC" secondAttribute="top" constant="20" id="obY-h1-hbd"/>
                             <constraint firstItem="bRn-qB-EW9" firstAttribute="leading" secondItem="KcZ-xL-FHC" secondAttribute="leading" constant="20" id="t8A-gg-VmZ"/>
                             <constraint firstItem="taQ-Lb-jDd" firstAttribute="leading" secondItem="KcZ-xL-FHC" secondAttribute="leading" constant="20" id="yCt-Jg-4wX"/>
@@ -404,6 +423,10 @@
                         <viewLayoutGuide key="safeArea" id="KcZ-xL-FHC"/>
                     </view>
                     <navigationItem key="navigationItem" id="oNA-Au-jbG"/>
+                    <connections>
+                        <outlet property="timeCollectionView" destination="bRn-qB-EW9" id="FHk-j5-1yd"/>
+                        <outlet property="titleLabel" destination="taQ-Lb-jDd" id="RVQ-li-UVM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S8c-mE-xXU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

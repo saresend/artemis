@@ -11,6 +11,7 @@ import JTAppleCalendar
 
 class SchedulingViewController: UIViewController {
     @IBOutlet var calendarView: JTACMonthView!
+    var date: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ extension SchedulingViewController: JTACMonthViewDataSource {
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
-       let startDate = Date()
+        let startDate = Date()
         let endDate = Date() + 26800000.0
         return ConfigurationParameters(startDate: startDate, endDate: endDate)
     }
@@ -58,8 +59,18 @@ extension SchedulingViewController: JTACMonthViewDelegate {
         return true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is TimeViewController
+        {
+            let vc = segue.destination as? TimeViewController
+            vc?.date = self.date
+        }
+    }
+    
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         print(date)
+        self.date = date
         performSegue(withIdentifier: "toTime", sender: nil)
     }
 }
