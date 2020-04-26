@@ -13,6 +13,7 @@ class SchedulingViewController: UIViewController {
     
     @IBOutlet var calendarView: JTACMonthView!
     var date: Date?
+    @IBOutlet var backgroundView: UIView!
     var locationID = 0 // Should be set by segue
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,9 @@ class SchedulingViewController: UIViewController {
         calendarView.calendarDelegate = self
         print("HERE IS LOCATION ID")
         print(locationID)
+        backgroundView.layer.cornerRadius = 40
+        backgroundView.backgroundColor = UIColor(hex: "#2D7DD2FF")
+        calendarView.backgroundColor = UIColor(hex: "#2D7DD2FF")
     }
     
 
@@ -55,11 +59,12 @@ extension SchedulingViewController: JTACMonthViewDelegate {
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
         cell.dateLabel.text = cellState.text
+        cell.dateLabel.textColor = UIColor.white
         if Calendar.current.isDateInToday(date) {
-            cell.dateLabel.textColor = UIColor.blue
+            cell.dateLabel.textColor = UIColor.orange
         }
         if cellState.dateBelongsTo != .thisMonth {
-            cell.dateLabel.textColor = UIColor.gray
+            cell.dateLabel.textColor = UIColor.lightGray
         }
         return cell
     }

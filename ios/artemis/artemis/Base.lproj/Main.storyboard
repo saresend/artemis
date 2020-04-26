@@ -284,6 +284,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BUx-7v-TV4">
+                                <rect key="frame" x="0.0" y="218" width="414" height="624"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHe-TP-rJc">
                                 <rect key="frame" x="20" y="20" width="17.5" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
@@ -292,7 +297,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmO-6A-S0l">
                                 <rect key="frame" x="34" y="266" width="118" height="32"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7IB-p2-fLd" customClass="JTACMonthView" customModule="JTAppleCalendar">
@@ -349,6 +354,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dMJ-DT-vre"/>
                     <connections>
+                        <outlet property="backgroundView" destination="BUx-7v-TV4" id="bBm-lA-Iv5"/>
                         <outlet property="calendarView" destination="7IB-p2-fLd" id="zgh-R3-DnG"/>
                         <segue destination="yJY-cU-dA6" kind="presentation" identifier="toTime" id="mq0-Wu-VFA"/>
                     </connections>
