@@ -66,7 +66,6 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     func locationManager(_ manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation])
     {
-      
         if currUserLocation == nil {
             currUserLocation = locations.last
             let region = MKCoordinateRegion( center: currUserLocation!.coordinate, latitudinalMeters: CLLocationDistance(exactly: 5000)!, longitudinalMeters: CLLocationDistance(exactly: 5000)!)
