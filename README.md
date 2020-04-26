@@ -1,4 +1,8 @@
-# Project Artemis: Making hunting for groceries a safer experience
+
+
+# Project Artemis: Making hunting for groceries safer
+![alt](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/061/104/datas/gallery.jpg)
+
 
 ## Motivation
 
