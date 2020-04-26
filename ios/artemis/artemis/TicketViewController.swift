@@ -25,11 +25,13 @@ func generateQRCode(from string: String) -> UIImage? {
 
 class TicketViewController: UIViewController {
 
+    @IBOutlet var titleUILabel: UILabel!
     @IBOutlet var qrImage: UIImageView!
     var appointment: Appointment? = nil // Should be set by segue
     override func viewDidLoad() {
         super.viewDidLoad()
         qrImage.image = generateQRCode(from: "YEEEEHAW")
+        titleUILabel.text = appointment?.title
         // Do any additional setup after loading the view.
     }
     
