@@ -25,11 +25,11 @@ class SchedulingViewController: UIViewController {
         print("HERE IS LOCATION ID")
         print(locationID)
         backgroundView.layer.cornerRadius = 40
-        backgroundView.backgroundColor = UIColor(hex: "#3581B8FF")
+        backgroundView.backgroundColor = ThemeBlue
         calendarView.backgroundColor = UIColor.clear
         locationLabel.text = locationName
-        locationLabel.textColor = UIColor(hex: "#FB8765FF")
-        cancelButton.tintColor = UIColor(hex: "#FB8765FF")
+        locationLabel.textColor = ThemeOrange
+        cancelButton.tintColor = ThemeOrange
     }
     
 
@@ -70,7 +70,7 @@ extension SchedulingViewController: JTACMonthViewDelegate {
         cell.dateLabel.text = cellState.text
         cell.dateLabel.textColor = UIColor.white
         if Calendar.current.isDateInToday(date) {
-            cell.dateLabel.textColor = UIColor(hex: "#FB8765FF")
+            cell.dateLabel.textColor = ThemeOrange
         }
         if cellState.dateBelongsTo != .thisMonth {
             cell.dateLabel.textColor = UIColor.lightGray

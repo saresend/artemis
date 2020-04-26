@@ -65,8 +65,8 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
-        cell.labelBorderView.layer.borderColor = UIColor(hex: "#3581B8FF")!.cgColor
-        cell.timeLabel.textColor = UIColor(hex: "#3581B8FF")
+        cell.labelBorderView.layer.borderColor = ThemeBlue!.cgColor
+        cell.timeLabel.textColor = ThemeBlue
         date = cell.time
     }
     
@@ -101,7 +101,7 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         formatter.timeStyle = .short
         let timeText = formatter.string(from:date!)
         dispatchSave(loc_id: locationID, timestamp: timeText)
-        let alert = UIAlertController(title: "Appointment Confirmed", message: timeText, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Visit Scheduled", message: timeText, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("View", comment: "Go to Appointments"), style: .default, handler: { _ in
             self.nextViewNumber = 1
             self.performSegue(withIdentifier: "toTabBar", sender: nil)
@@ -121,16 +121,16 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         
         backgroundView.layer.cornerRadius = 40
-        backgroundView.backgroundColor = UIColor(hex: "#FB8765FF")
+        backgroundView.backgroundColor = ThemeOrange
         timeCollectionView.backgroundColor = UIColor.clear
-        cancelButton.tintColor = UIColor(hex: "#FB8765FF")
+        cancelButton.tintColor = ThemeOrange
         
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         dateLabel.text = formatter.string(from:date!)
-        dateLabel.textColor = UIColor(hex: "#3581B8FF")
+        dateLabel.textColor = ThemeBlue
         confirmButton.tintColor = UIColor.white
-        confirmButton.backgroundColor = UIColor(hex: "#3581B8FF")
+        confirmButton.backgroundColor = ThemeBlue
         confirmButton.layer.cornerRadius = 20
         // Do any additional setup after loading the view.
     }

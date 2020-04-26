@@ -104,6 +104,7 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             } else {
                 marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: pinIdent)
             }
+            marker.markerTintColor = ThemeBlue
             marker.displayPriority = .required
             return marker
         }
