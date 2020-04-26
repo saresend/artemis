@@ -73,7 +73,7 @@ class MapBaseViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         if currUserLocation == nil {
             currUserLocation = baseUIMap.userLocation
             let region = MKCoordinateRegion( center: currUserLocation!.coordinate, latitudinalMeters: CLLocationDistance(exactly: 5000)!, longitudinalMeters: CLLocationDistance(exactly: 5000)!)
-            baseUIMap.setRegion(region, animated: true)
+            baseUIMap.setRegion(region, animated: false)
         }
     }
     
