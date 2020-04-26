@@ -373,13 +373,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="." textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="OWe-7y-goC">
-                                                    <rect key="frame" x="59" y="84.5" width="10" height="43.5"/>
-                                                    <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Ye-n3J" userLabel="Time Label">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Ye-n3J" userLabel="Time Label">
                                                     <rect key="frame" x="45" y="53.5" width="38" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -389,12 +383,9 @@
                                             <constraints>
                                                 <constraint firstItem="Nsb-Ye-n3J" firstAttribute="centerY" secondItem="guQ-Vh-wx1" secondAttribute="centerY" id="CrK-GT-Cfx"/>
                                                 <constraint firstItem="Nsb-Ye-n3J" firstAttribute="centerX" secondItem="guQ-Vh-wx1" secondAttribute="centerX" id="TqS-0d-3al"/>
-                                                <constraint firstItem="OWe-7y-goC" firstAttribute="centerX" secondItem="guQ-Vh-wx1" secondAttribute="centerX" id="kjB-hy-TFe"/>
-                                                <constraint firstAttribute="bottom" secondItem="OWe-7y-goC" secondAttribute="bottom" id="y1p-cC-Urx"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="selectedLabel" destination="OWe-7y-goC" id="tMi-LK-cD8"/>
                                             <outlet property="timeLabel" destination="Nsb-Ye-n3J" id="AhH-eX-VFU"/>
                                         </connections>
                                     </collectionViewCell>

@@ -44,11 +44,14 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as! TimeCollectionViewCell
         
         let calendar = Calendar.current
-        cell.time = calendar.date(byAdding: .hour, value: 4 + indexPath.row + indexPath.section * 3, to: date!)
+        cell.time = calendar.date(byAdding: .hour, value: 8 + indexPath.row + indexPath.section * 3, to: date!)
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         
         cell.timeLabel.text = formatter.string(from:cell.time!)
+        cell.timeLabel.layer.borderWidth = 3.0
+        cell.timeLabel.layer.cornerRadius = 8
+        cell.timeLabel.layer.borderColor = UIColor.clear.cgColor
         
         return cell
     }
@@ -59,13 +62,14 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
-        cell.selectedLabel.textColor = UIColor.lightGray
+        print("selected")
+        cell.timeLabel.layer.borderColor = UIColor(red: 0.77, green: 0.87, blue: 0.96, alpha: 1.00).cgColor
         date = cell.time
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
-        cell.selectedLabel.textColor = UIColor.clear
+        cell.timeLabel.layer.borderColor = UIColor.clear.cgColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,4 +128,10 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
      }
      */
     
+}
+
+extension TimeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width/3.5, height: 50)
+    }
 }

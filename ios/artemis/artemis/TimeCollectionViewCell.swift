@@ -10,7 +10,5 @@ import UIKit
 
 class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet var timeLabel: UILabel!
-    @IBOutlet weak var selectedLabel: UITextField!
-    
     var time: Date?
 }
