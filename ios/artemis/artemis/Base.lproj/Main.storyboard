@@ -211,14 +211,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Ticket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijM-NI-tQf">
-                                <rect key="frame" x="20" y="71" width="215" height="59"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan QR code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SJ-S1-OyV">
+                                <rect key="frame" x="134" y="133" width="146" height="32"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place qr code inside the frame to scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAf-NH-Fn9">
+                                <rect key="frame" x="69" y="173" width="276" height="46.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="HAx-OP-6m9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LwZ-JC-uYP">
+                                <rect key="frame" x="87" y="232" width="240" height="2"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="EbD-IK-IsK"/>
+                                    <constraint firstAttribute="height" constant="2" id="JeW-BP-9W7"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iR2-uX-KJY">
-                                <rect key="frame" x="87" y="243" width="240" height="239"/>
+                                <rect key="frame" x="87" y="396" width="240" height="239"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iR2-uX-KJY" secondAttribute="height" multiplier="240:239" id="7X9-fB-b7t"/>
                                     <constraint firstAttribute="width" constant="240" id="T8O-FF-w1N"/>
@@ -227,10 +244,14 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="hAf-NH-Fn9" firstAttribute="centerX" secondItem="kBt-9U-GAH" secondAttribute="centerX" id="EYW-cM-a9f"/>
                             <constraint firstItem="iR2-uX-KJY" firstAttribute="centerX" secondItem="kBt-9U-GAH" secondAttribute="centerX" id="HRg-o5-c0q"/>
-                            <constraint firstItem="ijM-NI-tQf" firstAttribute="top" secondItem="kBt-9U-GAH" secondAttribute="top" constant="71" id="Kpc-mC-f7c"/>
-                            <constraint firstItem="ijM-NI-tQf" firstAttribute="leading" secondItem="kBt-9U-GAH" secondAttribute="leading" constant="20" id="f9d-l1-wuF"/>
-                            <constraint firstItem="iR2-uX-KJY" firstAttribute="top" secondItem="ijM-NI-tQf" secondAttribute="bottom" constant="113" id="pr3-lQ-gLL"/>
+                            <constraint firstItem="LwZ-JC-uYP" firstAttribute="top" secondItem="hAf-NH-Fn9" secondAttribute="bottom" constant="12.5" id="ISE-AO-yfj"/>
+                            <constraint firstItem="LwZ-JC-uYP" firstAttribute="centerX" secondItem="kBt-9U-GAH" secondAttribute="centerX" id="hgs-Xu-LFJ"/>
+                            <constraint firstItem="iR2-uX-KJY" firstAttribute="top" secondItem="LwZ-JC-uYP" secondAttribute="bottom" constant="162" id="mVl-ax-urg"/>
+                            <constraint firstItem="5SJ-S1-OyV" firstAttribute="centerX" secondItem="kBt-9U-GAH" secondAttribute="centerX" id="uK6-tI-45D"/>
+                            <constraint firstItem="5SJ-S1-OyV" firstAttribute="top" secondItem="kBt-9U-GAH" secondAttribute="top" constant="133" id="vb9-my-rSI"/>
+                            <constraint firstItem="hAf-NH-Fn9" firstAttribute="top" secondItem="5SJ-S1-OyV" secondAttribute="bottom" constant="8" id="x29-V8-NXe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kBt-9U-GAH"/>
                     </view>
@@ -296,7 +317,6 @@
                                 <state key="normal" image="xmark" catalog="system">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <state key="normal" image="xmark" catalog="system"/>
                                 <connections>
                                     <action selector="cancel:" destination="aID-KT-UrT" eventType="touchUpInside" id="EhG-7S-T8c"/>
                                 </connections>

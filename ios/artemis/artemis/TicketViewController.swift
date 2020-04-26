@@ -26,6 +26,7 @@ func generateQRCode(from string: String) -> UIImage? {
 class TicketViewController: UIViewController {
 
     @IBOutlet var qrImage: UIImageView!
+    var appointment: Appointment? = nil // Should be set by segue
     override func viewDidLoad() {
         super.viewDidLoad()
         qrImage.image = generateQRCode(from: "YEEEEHAW")

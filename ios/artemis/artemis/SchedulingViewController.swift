@@ -23,8 +23,8 @@ class SchedulingViewController: UIViewController {
         print("HERE IS LOCATION ID")
         print(locationID)
         backgroundView.layer.cornerRadius = 40
-        backgroundView.backgroundColor = UIColor(hex: "#2D7DD2FF")
-        calendarView.backgroundColor = UIColor(hex: "#2D7DD2FF")
+        backgroundView.backgroundColor = UIColor(hex: "#3581B8FF")
+        calendarView.backgroundColor = UIColor(hex: "#3581B8FF")
         cancelButton.tintColor = UIColor.init(hex: "#2d7dd2ff")
     }
     
