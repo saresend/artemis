@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class Appointment {
     var title: String = ""
@@ -49,6 +50,36 @@ class AppointmentListViewController: UIViewController, UITableViewDelegate, UITa
         appointmentTableView.delegate = self
         appointmentTableView.dataSource = self
         super.viewDidLoad()
+        fetchDataFromSteve()
+    }
+    /*
+     func requestLocations() {
+            AF.request("http://167.71.154.158:8000/location").validate().responseJSON { response in
+                for location in response.value as! NSArray {
+                    let jsonDict = location as! NSDictionary
+                    let point = (jsonDict["name"] as! String, jsonDict["lat"] as! Double, jsonDict["lng"] as! Double)
+                    let annotation = self.createAnnotation(point: point)
+                    self.baseUIMap.addAnnotation(annotation)
+                }
+                self.baseUIMap.showAnnotations(self.baseUIMap.annotations, animated: true)
+            }
+        }
+     */
+    
+    func fetchDataFromSteve() {
+        AF.request("http://167.71.154.158:8000/appointments/" + String(LoginViewController.userId)).validate().responseJSON { response in
+            for appt in response.value as! NSArray {
+                let jsonDict = appt as! NSDictionary
+                let name = "TODO Implement"
+                let time = jsonDict["timestamp"] as! String
+                let ident = jsonDict["id"] as! Int
+                let timeDate = time.toDate() ?? Date()
+                let app = Appointment(title: name, date: timeDate, ident: String(ident))
+                self.appointments.append(app)
+            }
+            self.appointmentTableView.reloadData()
+            print(response.value)
+        }
     }
     
 
@@ -68,7 +99,17 @@ class AppointmentListViewController: UIViewController, UITableViewDelegate, UITa
         let indexPath = appointmentTableView.indexPath(for: cell)
         appointments.remove(at: indexPath!.row)
         appointmentTableView.reloadData()
-        print(indexPath)
     }
     
+}
+
+extension String {
+    
+    func toDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        print(self)
+        dateFormatter.dateFormat = "yyyy' 'MM' 'dd' 'HH:mm::ss"
+        let date = dateFormatter.date(from: self)
+        return date
+    }
 }
