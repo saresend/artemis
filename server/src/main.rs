@@ -53,10 +53,10 @@ pub struct NewUser {
 #[derive(Queryable, Serialize)]
 pub struct Appointment {
     pub id: i32,
-    pub location_id: i32,
-    pub user_id: i32,
     pub len: i32,
     pub timestamp: String,
+    pub location_id: i32,
+    pub user_id: i32,
 }
 
 #[derive(Insertable, Deserialize)]
@@ -69,15 +69,27 @@ pub struct NewAppointment {
 }
 
 fn get_all_locations() -> Vec<Location> {
-    todo!()
+    use schema::Locations::dsl::*;
+    let conn = &*(CONN.lock().unwrap());
+    let results = Locations.load::<Location>(conn).unwrap();
+    return results;
 }
 
-fn get_appointments_for_id(id: i32) -> Vec<Appointment> {
-    todo!()
+fn create_location(new_loc: &NewLocation) {
+    let conn = &*(CONN.lock().unwrap());
+    diesel::insert_into(Locations::table).values(new_loc).execute(conn).unwrap();
+}
+
+fn get_appointments_for_id(u_id: i32) -> Vec<Appointment> {
+    use schema::Appointments::dsl::*;
+    let conn: &SqliteConnection = &*(CONN.lock().unwrap());
+    let results = Appointments.filter(user_id.eq(u_id)).load::<Appointment>(conn).unwrap();
+    return results;
 }
 
 fn insert_new_appointment(appt: &NewAppointment) {
-    todo!()
+    let conn = &*(CONN.lock().unwrap());
+    diesel::insert_into(Appointments::table).values(appt).execute(conn).unwrap();
 }
 
 fn get_connection() -> SqliteConnection {
@@ -99,6 +111,16 @@ async fn main() {
             warp::reply::reply()
         });
 
-    let routes = add_appt_path.or(warp::get().and(location_path.or(appoint_path)));
+    let add_loc_path = warp::post()
+        .and(warp::path("location/new"))
+        .and(warp::body::json())
+        .map(|new_loc: NewLocation| {
+            create_location(&new_loc); 
+            warp::reply::reply()
+        });
+
+    let post_routes = add_appt_path.or(add_loc_path);
+
+    let routes = post_routes.or(warp::get().and(location_path.or(appoint_path)));
     warp::serve(routes).run(([0, 0, 0, 0], 8000)).await;
 }
