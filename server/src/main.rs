@@ -107,10 +107,13 @@ fn get_appointments_for_id(u_id: i32) -> Vec<AugResult> {
         .load::<Appointment>(conn)
         .unwrap();
     use schema::Locations::dsl::*;
+    
     let mut aug_result = vec![];
     for appt in results {
-        let loc = Locations.filter(id.eq(appt.location_id)).first::<Location>(conn).unwrap();
-        aug_result.push(AugResult { location: loc, appointment: appt});
+        let loc = Locations.filter(id.eq(appt.location_id)).first::<Location>(conn);
+        if let Ok(the_loc) = loc {
+            aug_result.push(AugResult { location: the_loc, appointment: appt});
+        }
     }
     return aug_result;
 }
