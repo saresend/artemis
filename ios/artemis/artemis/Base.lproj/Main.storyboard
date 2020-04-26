@@ -465,8 +465,8 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-Ye-n3J" userLabel="Time Label">
-                                                    <rect key="frame" x="45" y="53.5" width="38" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="45" y="52.5" width="38" height="23.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -488,7 +488,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blY-za-TTT">
-                                <rect key="frame" x="260" y="738" width="134" height="50"/>
+                                <rect key="frame" x="250" y="738" width="144" height="50"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Confirm"/>
                                 <connections>
@@ -516,7 +516,7 @@
                             <constraint firstItem="bRn-qB-EW9" firstAttribute="top" secondItem="XC7-gn-ri1" secondAttribute="bottom" constant="20" id="a1z-UU-IzJ"/>
                             <constraint firstItem="KcZ-xL-FHC" firstAttribute="trailing" secondItem="taQ-Lb-jDd" secondAttribute="trailing" constant="50" id="kSc-hu-XeK"/>
                             <constraint firstItem="kaj-VD-kyK" firstAttribute="top" secondItem="KcZ-xL-FHC" secondAttribute="top" constant="20" id="obY-h1-hbd"/>
-                            <constraint firstItem="blY-za-TTT" firstAttribute="leading" secondItem="KcZ-xL-FHC" secondAttribute="leading" constant="260" id="qEZ-KX-uUE"/>
+                            <constraint firstItem="blY-za-TTT" firstAttribute="leading" secondItem="KcZ-xL-FHC" secondAttribute="leading" constant="250" id="qEZ-KX-uUE"/>
                             <constraint firstAttribute="bottom" secondItem="RYU-5O-gZ6" secondAttribute="bottom" id="sSF-nY-69m"/>
                             <constraint firstItem="bRn-qB-EW9" firstAttribute="leading" secondItem="KcZ-xL-FHC" secondAttribute="leading" constant="20" id="t8A-gg-VmZ"/>
                             <constraint firstItem="taQ-Lb-jDd" firstAttribute="leading" secondItem="KcZ-xL-FHC" secondAttribute="leading" constant="20" id="yCt-Jg-4wX"/>

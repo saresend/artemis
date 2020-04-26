@@ -28,7 +28,8 @@ class SchedulingViewController: UIViewController {
         backgroundView.backgroundColor = UIColor(hex: "#3581B8FF")
         calendarView.backgroundColor = UIColor.clear
         locationLabel.text = locationName
-        locationLabel.textColor = UIColor(hex: "#3581B8FF")
+        locationLabel.textColor = UIColor(hex: "#FB8765FF")
+        cancelButton.tintColor = UIColor(hex: "#FB8765FF")
     }
     
 
@@ -69,7 +70,7 @@ extension SchedulingViewController: JTACMonthViewDelegate {
         cell.dateLabel.text = cellState.text
         cell.dateLabel.textColor = UIColor.white
         if Calendar.current.isDateInToday(date) {
-            cell.dateLabel.textColor = UIColor.orange
+            cell.dateLabel.textColor = UIColor(hex: "#FB8765FF")
         }
         if cellState.dateBelongsTo != .thisMonth {
             cell.dateLabel.textColor = UIColor.lightGray

@@ -53,7 +53,7 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         cell.timeLabel.text = formatter.string(from:cell.time!)
         cell.labelBorderView.backgroundColor = UIColor.clear
-        cell.labelBorderView.layer.borderWidth = 4.0
+        cell.labelBorderView.layer.borderWidth = 3.5
         cell.labelBorderView.layer.cornerRadius = 20
         cell.labelBorderView.layer.borderColor = UIColor.clear.cgColor
         return cell
@@ -65,13 +65,15 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
-        cell.labelBorderView.layer.borderColor = UIColor.init(hex: "#3581B8FF")!.cgColor
+        cell.labelBorderView.layer.borderColor = UIColor(hex: "#3581B8FF")!.cgColor
+        cell.timeLabel.textColor = UIColor(hex: "#3581B8FF")
         date = cell.time
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TimeCollectionViewCell
         cell.labelBorderView.layer.borderColor = UIColor.clear.cgColor
+        cell.timeLabel.textColor = UIColor.black
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,7 +110,8 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.nextViewNumber = 0
             self.performSegue(withIdentifier: "toTabBar", sender: nil)
         }))
-        self.present(alert, animated: true, completion: nil)
+        
+        alert.present(alert, animated: true, completion: nil)
     }
     
     @IBOutlet weak var timeCollectionView: UICollectionView!
@@ -118,8 +121,9 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         
         backgroundView.layer.cornerRadius = 40
-        backgroundView.backgroundColor = UIColor(hex: "#FCAE97FF")
+        backgroundView.backgroundColor = UIColor(hex: "#FB8765FF")
         timeCollectionView.backgroundColor = UIColor.clear
+        cancelButton.tintColor = UIColor(hex: "#FB8765FF")
         
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -127,7 +131,7 @@ class TimeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         dateLabel.textColor = UIColor(hex: "#3581B8FF")
         confirmButton.tintColor = UIColor.white
         confirmButton.backgroundColor = UIColor(hex: "#3581B8FF")
-        confirmButton.layer.cornerRadius = 10
+        confirmButton.layer.cornerRadius = 20
         // Do any additional setup after loading the view.
     }
     

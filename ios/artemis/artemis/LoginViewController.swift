@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
         signInButton.backgroundColor = UIColor.init(hex: "#3581B8FF")
         signInButton.titleLabel?.textColor = UIColor.white
         signInButton.layer.cornerRadius = 30
-        sunsetView.backgroundColor = UIColor.init(hex: "#FCAE97FF")
+        sunsetView.backgroundColor = UIColor(hex: "#FB8765FF")
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: sunsetView.bounds.size.width / 2, y: sunsetView.bounds.size.height), radius: sunsetView.bounds.size.height / 2  , startAngle: 0.0, endAngle: CGFloat(M_PI), clockwise: false)
         let circleShape = CAShapeLayer()
         circleShape.path = circlePath.cgPath
